@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<style type="text/css">
+h2{border-bottom:1px solid red;}
+</style>
+<meta name=vs_targetSchema content="http://schemas.microsoft.com/intellisense/ie5">
+<title>System.Type による効率的な switch に関し</title>
+<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+<meta name=ProgId content=VisualStudio.HTML>
+<meta name=Originator content="Microsoft Visual Studio .NET 7.1">
+</head>
+<body>
+<h1>System.Type による効率的な switch を実現する方法に関して</h1>
+<h2>if(t==typeof(...)){...}else を羅列する方法</h2>
+<h3>問題点</h3>
+<ul>
+<li>System.Type の等値演算のコスト / typeof 演算のコスト</li>
+</ul>
+<h2>t.GetHashCode(); を利用して switch 構文を利用する方法</h2>
+<pre>
+switch(t.GetHashCode()){
+	case 0xXXXXXXXX:	//XXXXXXXX は予め計算しておく
+		if(t!=typeof(...))goto default;
+		break;
+}
+</pre>
+<ul>
+<li>O 整数を使用する事により比較演算が速くなる / System.Type 等値評価は一回だけで良い</li>
+<li>X GetHashCode の実行コスト</li>
+<li>X 離散的である為最適化の望みはない(標準のコンパイラでは)
+ <p>→自分で工夫すれば、ジャンプテーブルが働くようにすることも出来る</p>
+</li>
+</ul>
+<h3>問題点</h3>
+<ul>
+<li>唯単純に 0xXXXXXXXX の形式に typeof(...).GetHashCode() を直すと、負の値は 0x80000000 等となりコンパイルが通らない
+ <p>→0x7fffffff でマスクした物で比較する。</p>
+</li>
+<li>何故か t.GetHashCode() は日替わり? (t が同じ型を表している筈なのに ... 0x000*0000 の * の辺りが変化している...)
+ <p>→ t.GetHashCode() ではなくて t.GUID.GetHashCode() を使用。所が、typeof(型[]) の GUID は全て 0 ...</p>
+ <p>→ t.GetHashCode() ではなくて t.FullName.GetHashCode() を使用。</p>
+</li>
+</ul>
+
+</body>
+</html>
