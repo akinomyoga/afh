@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<frames>
+  <frame id="UFID" type="UFID">
+    <en name="Unique file identifier" desc="This frame's purpose is to be able to identify the audio file in a database."/>
+    <ja name="File 一意識別子" desc="この frame の目的は database 内で音声 file を特定する事が出来る様にするという物です。"/>
+  </frame>
+  <frame id="TALB" type="text">
+    <en name="Album/Movie/Show title" desc="The title of the recording(/source of sound) which the audio in the file is taken from."/>
+    <ja name="歌集・映画・公演 題名" desc="File 内の音声の音源の題名。"/>
+  </frame>
+  <frame id="TBPM" type="positive-integer">
+    <en name="BPM" desc="The number of beats per minute in the mainpart of the audio."/>
+    <ja name="BPM" desc="音声の主要な部分に於けるテンポ (一分間あたりの拍子の数)。"/>
+  </frame>
+  <frame id="TCOM" type="slash-list">
+    <en name="Composer(s)" desc="The name of the composer(s)."/>
+    <ja name="作曲者" desc="作曲者の名前。"/>
+  </frame>
+  <frame id="TCON" type="TCON">
+    <en name="Content type" desc="Content type."/>
+    <ja name="Content type" desc="Content type."/>
+  </frame>
+  <frame id="TCOP" type="TCOP">
+    <en name="Copyright message" desc="The copyright holder of the original sound."/>
+    <ja name="著作権表示" desc="元の音声の著作権。"/>
+  </frame>
+  <frame id="TDAT" type="TDAT">
+    <en name="Date" desc="The date for the recording."/>
+    <ja name="日付" desc="音声の記録月日。"/>
+  </frame>
+  <frame id="TDLY" type="natural-integer">
+    <en name="Playlist delay" desc="The numbers of milliseconds of silence between every song in a playlist."/>
+    <ja name="再生一覧遅延時間" desc="再生一覧表に於いてそれぞれの曲の間に挟む無音時間の長さを milli 秒を単位として指定した物。"/>
+  </frame>
+  <frame id="TENC" type="slash-list" discard-on-altering-file="true">
+    <en name="Encoded by" desc="The name of the person or organisation that encoded the audio file."/>
+    <ja name="符号化者" desc="この音声 file に音声を符号化した団体亦は個人の名前。"/>
+  </frame>
+  <frame id="TEXT" type="slash-list">
+    <en name="Lyricist(s)/Text writer(s)" desc="The writer(s) of the text or lyrics in the recording."/>
+    <ja name="作詞者/原稿著者" desc="録音時の文章及び歌詞の著作者。"/>
+  </frame>
+  <frame id="TFLT" type="TFLT">
+    <en name="File type" desc="Which type of audio this tag defines."/>
+    <ja name="File 型" desc="音声情報の種類。"/>
+  </frame>
+  <frame id="TIME" type="TIME">
+    <en name="Time" desc="The time for the recording."/>
+    <ja name="時刻" desc="音声の録音時の時刻。"/>
+  </frame>
+  <frame id="TIT1" type="text">
+    <en name="Content group description" desc="Used if the sound belongs to a larger category of sounds/music."/>
+    <ja name="Content Group の説明" desc="音声がより大きな音声分類に属する時に使用されます。"/>
+  </frame>
+  <frame id="TIT2" type="text">
+    <en name="Title/Songname/Content description" desc="The actual name of the piece."/>
+    <ja name="題名/曲名/内容の説明" desc="その作品の実際の名前。"/>
+  </frame>
+  <frame id="TIT3" type="text">
+    <en name="Subtitle/Description refinement" desc="Information directly related to the contents title."/>
+    <ja name="副題/解説の詳細" desc="内容の題に直接的に関連する情報。"/>
+  </frame>
+  <frame id="TKEY" type="TKEY">
+    <en name="Initial key" desc="The musical key in which the sound starts."/>
+    <ja name="開始鍵" desc="音声の初めの音階。"/>
+  </frame>
+  <frame id="TLAN" type="TLAN">
+    <en name="Language(s)" desc="The languages of the text or lyrics spoken or sung in the audio."/>
+    <ja name="言語" desc="音声で話されている文章、亦は歌われている歌詞の言語。"/>
+  </frame>
+  <frame id="TLEN" type="natural-integer" discard-on-altering-file="true">
+    <en name="Length" desc="The length of the audiofile in milliseconds."/>
+    <ja name="長さ" desc="Milli 秒を単位とした音声 file の長さ。"/>
+  </frame>
+  <frame id="TMED" type="TMED">
+    <en name="Media type" desc="From which media the sound originated."/>
+    <ja name="媒体型" desc="どの媒体が音源となっているか。"/>
+  </frame>
+  <frame id="TOAL" type="text">
+    <en name="Original album/movie/show title" desc="The title of the original recording (or source of sound)."/>
+    <ja name="歌集/映画/公演 の原題" desc="元々の音源の題名。"/>
+  </frame>
+  <frame id="TOFN" type="text">
+    <en name="Original filename" desc="The preferred filename for the file."/>
+    <ja name="本来の file 名" desc="File のあるべき名前。"/>
+  </frame>
+  <frame id="TOLY" type="slash-list">
+    <en name="Original lyricist(s)/text writer(s)" desc="The text writer(s) of the original recording."/>
+    <ja name="元々の作詞者・著者" desc="元々の録音の際の文章を書いた人。"/>
+  </frame>
+  <frame id="TOPE" type="slash-list">
+    <en name="Original artist(s)/performer(s)" desc="The performer(s) of the original recording."/>
+    <ja name="元々の歌手・演奏者" desc="元々の音源の演者。"/>
+  </frame>
+  <frame id="TORY" type="year">
+    <en name="Original release year" desc="The year when the original recording."/>
+    <ja name="元々の発行年" desc="元々の録音が為された年。"/>
+  </frame>
+  <frame id="TOWN" type="text">
+    <en name="File owner/licensee" desc="The name of the owner or licensee of the file and it's contents."/>
+    <ja name="File 所有者・使用許可" desc="File の所有者及び使用許可とその内容を記述するのに使用。"/>
+  </frame>
+  <frame id="TPE1" type="slash-list">
+    <en name="Lead artist(s)/Lead performer(s)/Soloist(s)/Performing group" desc="The main artist(s)."/>
+    <ja name="主たる歌手/主たる演者/独演者/演じている団体" desc="主な演者。"/>
+  </frame>
+  <frame id="TPE2" type="text">
+    <en name="Band/Orchestra/Accompaniment" desc="Additional information about the performers in the recording."/>
+    <ja name="楽団/伴奏" desc="音声の演者に関する追加的な情報。"/>
+  </frame>
+  <frame id="TPE3" type="text">
+    <en name="Conductor" desc="The name of the conductor."/>
+    <ja name="指揮者" desc="指揮者の名前。"/>
+  </frame>
+  <frame id="TPE4" type="text">
+    <en name="Interpreted, remixed, or otherwise modified by" desc="More information about the people behind a remix and similar interpretations of another existing piece."/>
+    <ja name="説明・混合・変更をした者" desc="他の既存の作品を remix 亦は似た様な説明を行った際に貢献した人。"/>
+  </frame>
+  <frame id="TPOS" type="position">
+    <en name="Part of a set" desc="A numeric string that describes which part of a set the audio came from."/>
+    <ja name="集合中の部分の番号" desc="音声がどの部分から来た物であるかを指定する数字列。"/>
+  </frame>
+  <frame id="TPUB" type="text">
+    <en name="Publisher" desc="The name of the label or publisher."/>
+    <ja name="発行者" desc="Label 亦は発行者の名前。"/>
+  </frame>
+  <frame id="TRCK" type="position">
+    <en name="Track number/Position in set" desc="A numeric string containing the order number of the audio-file on its original recording."/>
+    <ja name="Track 番号・set 中の番号" desc="音源に於ける音声 file の番号を数字列で表現した物。"/>
+  </frame>
+  <frame id="TRDA" type="text">
+    <en name="Recording dates" desc='Complement to the "TYER", "TDAT" and "TIME" frames.'/>
+    <ja name="収録月日" desc='"TYER"/"TDAT"/"TIME" frame の補足。'/>
+  </frame>
+  <frame id="TRSN" type="text">
+    <en name="nternet radio station name" desc="The name of the internet radio station from which the audio is streamed."/>
+    <ja name="Internet radio 局名" desc="音声情報を流した internet radio 局の名前。"/>
+  </frame>
+  <frame id="TSIZ" type="natural-integer" discard-on-altering-file="true">
+    <en name="Size" desc="The size of the audiofile in bytes, excluding the ID3v2 tag."/>
+    <ja name="大きさ" desc="ID3v2 tag を除いた音声 file の長さを byte 単位で表した物。"/>
+  </frame>
+  <frame id="TSRC" type="TSRC">
+    <en name="ISRC" desc="Tthe International Standard Recording Code (ISRC)."/>
+    <ja name="ISRC" desc="十二文字の ISRC (国際標準 Recording Code。"/>
+  </frame>
+  <frame id="TSSE" type="text">
+    <en name="Software/Hardware and settings used for encoding" desc="The used audio encoder and its settings when the file was encoded."/>
+    <ja name="符号化に使用した Software/Hardware 及び設定" desc="符号化した際に使用した音声符号化器、及びその際の設定。"/>
+  </frame>
+  <frame id="TYER" type="year">
+    <en name="Year" desc="A year of the recording."/>
+    <ja name="年" desc="音声の収録の年。"/>
+  </frame>
+  <!--
+  <frame id="">
+    <en name="" desc=""/>
+    <ja name="" desc=""/>
+  </frame>
+  <frame id="">
+    <en name="" desc=""/>
+    <ja name="" desc=""/>
+  </frame>
+  <frame id="">
+    <en name="" desc=""/>
+    <ja name="" desc=""/>
+  </frame>
+  <frame id="">
+    <en name="" desc=""/>
+    <ja name="" desc=""/>
+  </frame>
+  <frame id="">
+    <en name="" desc=""/>
+    <ja name="" desc=""/>
+  </frame>
+  -->
+</frames>

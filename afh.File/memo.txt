@@ -1,0 +1,63 @@
+■予定
+
+□StreamAccessor
+
+cls:StreamAccessor
+cls:SubStream
+
+>EncodingType.EncAnsi 等の移動
+>EncodingType の underlying type を uint に
+>ReadString の NoSpecified
+>float double 等も読み書きする事が出来る様にする。
+
+<予定>
+先読み機能を実装する。
+配列やコレクションなどの読み書き
+Stream を書き込める様にする。
+
+SubStream 参照元が無くなったら本 Stream を Close する様にする。
+取得した SubStream の Close を徹底する。
+
+より多くの引数を取れる様にする。
+
+□その他
+SubStream も読み取る事が出来る様にする。(遅延読込などにも使用する)
+ReadSchedule に依る指定ではなくて
+a. xml に依る指定でより複雑な読込も出来る様にする。
+b. 自分で用意した Read 関数/ Write 関数を使用して読み込む。
+
+■自動読み書き
+
+attr:ReadSchedule
+attr:WriteSchedule
+attr:ReadWriteAs
+attr:ReadWriteArray
+→自動読み書きに使用
+
+<予定>
+StreamAccessor を引数に取るメソッドの呼び出しも可能にする。
+
+■ユーザー読み書き
+attr:CustomRead
+attr:CustomWrite
+
+<予定>
+
+■xml 読み書き
+
+<予定>
+checked: オーバーフローチェック
+measure-size: 大きさを測って後で代入
+
+■各種ファイル
+RIFF
+　<予定>
+　一部書き換え (ノード) にも対応する。
+
+<予定>
+AVI RIFF
+RIFF Mp3
+ID2v1
+ID3v2_2
+ID3v2_3
+ID3v2_4

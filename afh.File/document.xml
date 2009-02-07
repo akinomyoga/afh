@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<document>
+  <desc name="afh.File.StreamAccessor::enc2">
+    <para>
+			<see cref="EncodingType.EncWide">EncWide</see> を指定した場合には <paramref name="enc" /> に指定した文字コードを使用して BOM 付きで書き込みます。
+			具体的な値としては、
+			<see cref="EncodingType.Enc_utf_8">Enc_utf_8</see>,
+			<see cref="EncodingType.Enc_utf_16">Enc_utf_16</see>,
+			<see cref="EncodingType.Enc_utf_16BE">Enc_utf_16BE</see>,
+			<see cref="EncodingType.Enc_utf_32">Enc_utf_32</see> (<see cref="EncodingType.StrTerminated">StrTerminated</see> では不可),
+			<see cref="EncodingType.Enc_utf_32BE">Enc_utf_32BE</see> (<see cref="EncodingType.StrTerminated">StrTerminated</see> では不可)
+			を指定できます。それ以外の物を指定した場合には UTF16 が使用されます。
+		</para>
+    <para>
+			<see cref="EncodingType.EncEmbedded">EncEmbedded</see>  を指定した場合には <paramref name="enc" /> に指定した文字コードを 2B の codepage 付きで書き込みます。
+			具体的な Encoding としては 任意の物を指定できます。<see cref="EncodingType.Enc_Default" /> を指定した場合には、既定値として
+			<see cref="System.Text.Encoding.Default" /> が使用されます。
+		</para>
+    <para>
+			何も指定しなかった場合には <see cref="EncodingType.EncEmbedded" />|<see cref="EncodingType.Enc_utf_16" /> と扱われます。
+		</para>
+  </desc>
+  <desc name="afh.File.StreamAccessor::ReadStruct+Example">
+    <example>
+		<code>
+		struct Struct{
+			int x;
+			int y;
+			int z;
+
+			[NonSerialize]
+			bool dummy;
+		}
+		</code>
+		例えば、上の様な構造体で初めの三つの field のみ stream に記録されている場合には 12 (== 4 * sizeof(int))
+		を指定します。
+		</example>
+  </desc>
+  <desc name="afh.File.Design.ReadTypeAttribute::Read">
+		<summary>
+		指定した型を StreamAccessor から読み取ります。
+		</summary>
+		<param name="type">この属性が適用されている型を指定します。</param>
+		<param name="accessor">読込元の Stream を指定します。</param>
+		<returns>読み取った <paramref name="type"/> で指定された型のオブジェクトを返します。</returns>
+	</desc>
+  <desc name="afh.File.Design.WriteTypeAttribute::Write">
+		<summary>
+		指定したオブジェクトを StreamAccessor に書き込みます。
+		</summary>
+		<param name="value">書き込む値を指定します。値の型はこの属性が適用されている型です。</param>
+		<param name="accessor">書込先の Stream を指定します。</param>
+	</desc>
+	<desc name="afh.File.Riff.Chunk::SetContent">
+		<remarks>
+		StreamAccessor を通して書き込まれる時の Chunk の内容の優先順位は以下の通りです。
+		1. SetContent で設定した内容。
+		2. Stream に設定した内容。
+		3. 初めから Stream にあった内容。
+		</remarks>
+	</desc>
+</document>

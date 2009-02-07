@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3C4F8F4D-F3B5-4654-8922-E75C3D91F674}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>afh</RootNamespace>
+    <AssemblyName>afh.File</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Debug\afh.File.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <None Include="ID3v2_3old\[!bld]TextInformationBox.cs">
+      <SubType>UserControl</SubType>
+    </None>
+    <Compile Include="EncodingType.cs" />
+    <None Include="ID3v2_3\Tag.cs" />
+    <Compile Include="ID3\ID3Share.cs" />
+    <Compile Include="ID3\ID3v1.cs" />
+    <Compile Include="Mp3old\ID3v2.cs" />
+    <Compile Include="ID3v2_3old\ContentTypeEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ID3v2_3old\TextInformationBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ID3v2_3old\TextInformationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ID3v2_3old\SingleFrameEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ID3v2_3old\TextSlashListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseType.cs" />
+    <Compile Include="ID3v2_3old\binarydata.cs" />
+    <Compile Include="ID3v2_3old\TCONFrameEditBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ID3v2_3old\TextInformationFrame.cs" />
+    <Compile Include="Mp3old\ID3v2.2.cs" />
+    <Compile Include="ID3v2_3old\headers.cs" />
+    <Compile Include="Mp3old\Mp3DataControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Mp3old\mp3file.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Accessor.cs" />
+    <Compile Include="Riff\Riff.cs" />
+    <Compile Include="Riff\RiffWriter.cs" />
+    <Compile Include="RWCustom.cs" />
+    <Compile Include="RWMemberwise.cs" />
+    <Compile Include="RWAttribute.cs" />
+    <Compile Include="Properties\UnitTest.cs" />
+    <Compile Include="Stream.cs" />
+    <Compile Include="Text\漢字変換.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\afh\afh.csproj">
+      <Project>{F4AFB459-96B1-4AB1-A8EF-DA8B272B9A0B}</Project>
+      <Name>afh</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ID3v2_3old\ContentTypeEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ContentTypeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3v2_3old\TCONFrameEditBox.resx">
+      <DependentUpon>TCONFrameEditBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3v2_3old\FrameData.xml" />
+    <None Include="ID3v2_3old\[!bld]TextInformationBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>[!bld]TextInformationBox.cs</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Text\kantai_shinji.bin" />
+    <EmbeddedResource Include="ID3v2_3old\TextInformationBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TextInformationBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3v2_3old\TextInformationPanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TextInformationPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3v2_3old\SingleFrameEditor.resx">
+      <DependentUpon>SingleFrameEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ID3v2_3old\TextSlashListBox.resx">
+      <DependentUpon>TextSlashListBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="document.xml" />
+    <Content Include="memo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+</Project>
