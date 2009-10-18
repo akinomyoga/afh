@@ -1,0 +1,167 @@
+/*
+binary right operator = // += *= /= -= &= &&= ||= >>= <<= >>>= # triple left operator ?:
+binary left operator ||
+binary left operator ^^
+binary left operator &&
+binary left operator |
+bianry left operator ^
+binary left operator &
+binary left operator == !=
+binary left operator < > <= >= instanceof in
+binary left operator << >> >>>
+binary left operator + -
+binary left operator * / %
+unary right operator & * + - ++ -- ! ~
+unary left operator ()関数呼出
+triple right operator new()
+unary left operator ++ -- #	binary left operator . ->
+
+unary right_end operator sizeof var
+*/
+
+#namespace afh.Javascript.Parse
+#classname JavascriptParser
+
+// 左結合の演算子
+#def _BINARY_LEFT_OPERATOR(Self,Inner,Operators)
+Self{
+	<def>			:read(Inner);
+	
+	Operators		:next read(Inner) ldo2 jump(1);
+	<def>			:ret;
+}
+#endef
+
+// 右結合の演算子
+#def _BINARY_RIGHT_OPERATOR(Self,Inner,Operators)
+Self{
+	<def>			:read(Inner);
+
+	Operators		:next read(Self) ldo2 jump(1);
+	<def>			:ret;
+}
+#endef
+command ldwd{
+	push(new Word(word));
+}
+command ldoB{
+	push(new UnaryOperator(word,(IScriptNode)pop(),false));
+}
+command ldoA{
+	push(new UnaryOperator(word,(IScriptNode)pop(),true));
+}
+command ldo2{
+	push(new BinaryOperator(word,(IScriptNode)pop(),(IScriptNode)pop()));
+}
+command ldo3{
+	push(new TripleOperator((IScriptNode)pop(),(IScriptNode)pop(),(IScriptNode)pop()));
+}
+command ldcl{
+	push(new FunctionCall((IScriptNode[])pop(),(IScriptNode)pop()));
+}
+command ldmemb{
+	push(new MemberInvoke((IScriptNode[])pop(),(IScriptNode)pop()));
+}
+
+context main{
+	<def>	:read(E1);
+}
+context E1{
+	<def>	:read(E2);
+
+	= |= ^= &= <<= >>= >>>=
+	+= -= *= /= %=		:next read(E1) ldo2 jump(1);
+	?		:next read(三項) ldo3 ret;
+	<def>	:ret;
+}
+context 三項{
+	<def>	:read(E1);
+
+	\:		:next read(E1);
+	<def>	:error("'?' に対応する ':' が必要です");
+}
+
+context _BINARY_LEFT_OPERATOR(E2,E3,||)
+context _BINARY_LEFT_OPERATOR(E3,E4,^^)
+context _BINARY_LEFT_OPERATOR(E4,E5,&&)
+context _BINARY_LEFT_OPERATOR(E5,E6,|)
+context _BINARY_LEFT_OPERATOR(E6,E7,^)
+context _BINARY_LEFT_OPERATOR(E7,E8,&)
+context _BINARY_LEFT_OPERATOR(E8,E9,== !=)
+context _BINARY_LEFT_OPERATOR(E9,Ea,< > <= >= instanceof in)
+context _BINARY_LEFT_OPERATOR(Ea,Eb,<< >> >>>)
+context _BINARY_LEFT_OPERATOR(Eb,Ec,+ -)
+context _BINARY_LEFT_OPERATOR(Ec,Ed,* / %)
+
+context Ed{ // unary right operator
+	+ - ++ -- * &	:next read(Ed) ldoB; 
+	var				:next read(var) ldoB;
+	/				:next ldwd error;
+	<nul>			:ret;
+	<def>			:read(Ee);
+}
+context Ee{ // unary left operator () 
+			// unary right を挟んで優先度の高い unary left がある為変則的
+	<def>	:read(Ef);
+	
+	(		:next read(引数リスト) ldcl read(Eg) jump(1);
+	<def>	:ret;
+}
+context Ef{ // triple right operator new
+	new		:next read(Ef) ldoB jump(1);
+	<def>	:read(核) read(Eg) ret;
+	
+	(		:next read(引数リスト) ldcl read(Eg) ret;
+	<def>	:error("new の後に () が無いと困ります");
+}
+context Eg{ // unary left operator
+	++ --	:next ldoA jump(0);
+	. ->	:next read(nmtk) ldo2 jump(0);
+	[		:next read(引数リスト角) ldmemb read(Eg) jump(0);
+	<def>	:ret;
+}
+context 核{
+	(			:next read(E1) jump(1);
+	[id] [lit]	:next ldwd ret;
+	<def>		:error;
+	
+	)			:next;
+	<def>		:error("'(' に対応する ')' が見つからないです。");
+}
+context nmtk{
+	[id] [lit]	:next ldwd;
+	def			:error;
+}
+//======================================
+//		その他
+//======================================
+context 引数リスト{
+	<def>	:open;
+	
+	)		:next clos ret;
+	<def>	:read(E1);
+	
+	)		:next clos ret;
+	,		:next;
+	<def>	:error;
+	
+	) ,		:error("',' に続く引数がありません。");
+	<def>	:read(E1) jump(2);
+}
+context 引数リスト角{
+	<def>	:open;
+	
+	)		:next clos ret;
+	<def>	:read(E1);
+	
+	)		:next clos ret;
+	,		:next;
+	<def>	:error;
+	
+	) ,		:error("',' に続く引数がありません。");
+	<def>	:read(E1) jump(2);
+}
+context var{
+	[id] [lit]	:ldwd next;
+	<def>		:error("var の次には識別子が来る必要があります。");
+}

@@ -1,0 +1,446 @@
+﻿
+=====================================================================
+		C++ 文法改造について
+=====================================================================
+
+X 宣言の紛らわしさ
+~~~~~~~~~~~~~~~~~~
+[C++]
+class C{
+public:
+	C(){}
+	C(int){}
+};
+
+int main(){
+	C a;		// 初期化
+	C ();		// 初期化
+	C b(0);		// 初期化
+	C c(int);	// 関数前方宣言
+	C d();		// 関数前方宣言
+	C;			// syntax error
+}
+
+→ 前方宣言を文法から排除する
+　この事により、ソースの二度読みが必要になるが其処は我慢
+　ヘッダファイルは廃止。一つのファイルに宣言と実装を纏めて書く。
+　(或いは、ヘッダファイルは実装から自動生成する。)
+　
+
+[C++m]
+C a;		// 初期化
+C b();		// 初期化
+C c(0);		// 初期化
+C;			// 初期化
+C();		// 初期化
+
+X 何故か部分式を const T& で受け取れる
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+const int* danger(const int& n){
+	return &n;
+}
+
+int main(){
+	const int* a=danger(1);
+}
+
+→const T& では部分式を受け取る事は出来ない様にする。
+　部分式は T&& で受け取る様に徹底する。
+　※ これでも、危険である事には変わりないが、引数 (const int&) の意味の二重性は免れられる。
+
+X 初期化と代入
+~~~~~~~~~~~~~~
+C a;		// 初期化
+C b(a);		// 初期化
+C c=a;		// 初期化
+a=b;		// 代入
+
+→初期化は全て括弧を使用する
+　参照の場合は必ず初期化の括弧を伴って宣言しなければならない
+
+* 全ての部分式に型を与える
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+int a;
+int& b(a);
+int&& c(1);
+
+a	//-> int&	寿命:評価時→スコープの終了
+b	//-> int&	寿命:評価時→スコープの終了
+c	//-> int&	寿命:評価時→スコープの終了 ※ 危険
+1	//-> int&&	寿命:評価時→文の実行終了
+a+b //-> int&&	寿命:評価時→文の実行終了
+
+int a[5];
+a	//-> int(&)[5]
+
+int f(){}
+int f(int){}
+f	//-> overload{int(), int(int)}
+
+* キャストの定義
+~~~~~~~~~~~~~~~~
+[C++m]
+class C{
+public:
+	C(int){}					//→ キャストと見做さない (初期化のみ)
+	C operator explicit(char){}	//→ 明示キャスト
+	C operator implicit(char){}	//→ 暗黙キャスト
+	short operator coercion(){}	//→ 強制キャスト
+};
+
+同じシグニチャで異なる種類のキャストは定義不可
+
+> 初期化
+
+注意: 実引数は初期化で渡される。
+注意: 戻り値も初期化で渡される。(最適化により省略される事もある。)
+C::C(C); は定義不可 (無限 loop になってしまうので)
+既定の C::C(C&&) は値のコピーとして実装
+既定の C::C(C&) も値のコピーとして実装
+
+> 強制キャスト (配列, 関数の扱いの一般化)
+
+定義済の式木構造以外 (未定義の演算) で強制的にキャストを実行
+
+int a[5];
+sizeof a;		// キャスト無し
+decltype a;		// キャスト無し
+&a;				// キャスト無し
+/* その他 */	// 強制キャスト -> int* operator 
+int f(){}
+&f;				// キャスト無し
+/* その他 */	// 強制キャスト -> int (*)()
+
+擬似プロパティの実装などにも使える
+
+* 評価順序を定義する
+~~~~~~~~~~~~~~~~~~~~
+f(expr1,expr2,expr3)
+expr1 binaryop expr2
+
+例: x++=x++ -> 1. 左辺 x++ 2. 右辺 x++ 3. 代入
+
+* 基本型
+~~~~~~~~
+整数
+8	char		byte
+16	short		word
+32	int			dword
+64	long		qword
+128	i128		u128
+
+文字
+MultiBytes	byte, char
+Unicode16	wchar
+Unicode32	dchar
+
+浮動小数点
+32	float
+64	double
+128	decimal
+
+真偽値
+bool
+
+或いは
+i1t  u1t  c1t
+i2t  u2t  c2t
+i4t  u4t  c4t  f4t
+i8t  u8t  c8t  f8t
+iHt  uHt  cHt
+
+他
+string
+object
+
+* 関数も通常の変数と同様の初期化に一般化
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+struct S{
+	int a,b;
+};
+
+変数の宣言
+S i;
+
+変数の宣言 with 初期化子
+S i{1,2};
+/* C++ では S i={1,2} */
+
+関数の宣言 (default で const なので変更不可能になってしまう。実際にはあり得ない)
+void F(int);
+
+関数の宣言 with 初期化子 (と解釈する)
+void F(int a){
+	printf("%d\n",a);
+}
+
+* void は「何でも良い」の意とする
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void*				// C++ と同じ
+const void*			// C++ と同じ
+void func();		// 建前上は、「戻り値に何が入っているか分からない」(但し 戻し方は int* と同じ扱い)
+					// 実装上は、何も戻さない (C++ と同じ)
+int func(void,int);	// 第一引数に何が入っているかは関知しない。
+					// 実装上は、第一引数は無視して、呼出規約的には int の一引数のみを受け取る。
+
+* 式・文を引数に与える (制御構文の一般化)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// template の一種として
+void __syntax my_for(void;__expr__ e1;__expr__ e2) __sentence__ s {
+	for(;e1();e2()){
+		printf("loop!");
+		s();
+	}
+}
+
+my_for(int i=0;i<100;i++){
+	hogehoge;
+}
+
+・文法上 if while for do-while 等もこの様な関数型を持つ。(勿論、実装は関数とは異なる)
+void __syntax if(__expr) __sentance__;
+void __syntax if(__expr) __sentance__ else __sentence;
+void __syntax while(__expr) __sentence;
+void __syntax for(void;__expr;__expr) __sentence;
+void __syntax do __sentence while(__expr);
+void __syntax try __sentence (catch(__expr) __sentence)+ (finally __sentence)?; ... 苦しい
+
+・少し定義の仕方を変更
+void __syntax if(__expr,__sentence__);
+void __syntax if(__expr,__sentence__,else,__sentence);
+void __syntax while(__expr,__break_sentence);
+void __syntax for(void;__expr;__expr,__break_sentence);
+void __syntax do(__break_sentence,while,__expr);
+template<typename T>
+void __syntax switch(const T&,__case_sentence<T>);
+exception<void*> __syntax try(__sentence);
+exception<void*> __syntax(exception<void*>) catch(__expr,__throw_sentence); // 前の文の戻り値を受け取る
+exception<void*> __syntax(exception<void*>) finally(__throw_sentence);
+
+__break_sentence
+	中で break; continue; が可能な文
+__case_sentence
+	中で break; が可能な文
+	かつ、直下で case hoge; が可能な文
+__throw_sentence
+	中で (throw hoge; だけでなく) throw; が可能な文
+	
+* カスタムリテラル
+~~~~~~~~~~~~~~~~~~
+カスタムリテラルを定義出来るようにする。
+一文字の物は予約
+
+
+- constexpr enum_castable operator E""(const char* name);
+[cobalt::flags]
+enum FILE_ACCESS{
+	[char('r')]READ,
+	[char('w')]WRITE,
+	[char('b')]BINARY,
+	[char('s')]SHARED,
+};
+
+io::bstream openfile(string^ filename,FILE_ACCESS acc){} // a
+
+等と宣言しておくと、a, b の代わりに c の様に記述出来る。
+
+a) openfile("data01.dat",FILEACCESS.READ|FILEACCESS.WRITE);
+b) openfile("data01.dat",READ|WRITE);
+c) openfile("data01.dat",E"rb");
+
+* ラムダ式
+~~~~~~~~~~
+形式:
+  @ 宣言 : 式
+  @ 宣言 { 文 }
+
+※ 戻り型は自動的に推論されるが明示的に指定したい場合は、
+   単に以下のようにすれば良いだけである。
+  @ 宣言 : 戻り型(式)
+  @ 宣言 { 文 ... return 戻り型(式); }
+
+例:
+int a,b,c;
+auto lamb=@ int x,y,z : a++*x + b++*y + c++*z ;
+std::cout
+  <<format("%d",lamb(1,2,3))
+  <<format("%d",lamb(1,2,3))
+  <<format("%d",lamb(1,2,3));
+  
+std::sort(arr,@elem_t left,right{
+	...
+});
+
+=====================================================================
+	型機構
+=====================================================================
+
+* 型の「型」?
+~~~~~~~~~~~~~
+C++0x concept を型の型の様な物として扱う。
+勿論、厳密な型付けではなくて duck-typing である。
+また、全ての型は typename のインスタンスである。
+
+typename
+├ class
+├ union
+├ struct
+└ enum
+
+・従来の typedef は廃止する (最早 CV Classifier ではない)
+　typedef& my_index(unsigned int);	// 型の別名を定義
+　typedef my_num(unsigned int);		// 同じ機能を持つ異なる型の定義 (明示キャスト可能)
+
+・従来式の enum は廃止
+　C++0x enum class をその儘 enum として使う。
+　但し、関数の引数などで enum 型が決まっている場合は、省略可能
+
+型修飾子
+・const は代入不能型 (=, +=, etc. を禁止。非 mutable メンバにも感染。)
+・volatile は型修飾子ではなくストレージクラスに変更???
+　→すると、volatile char* 等の様にポインタの指し示す先に volatile を付ける手段が無くなる。
+
+* 関数オーバーロード
+~~~~~~~~~~~~~~~~~~~~~
+関数のオーバーロードの優先度
+一. 丁度一致
+　1. 参照として
+　2. 強制変換・参照
+　3. 右辺値参照として
+　4. 強制変換・右辺値参照
+　5. 値として
+　6. 強制変換・値
+二. テンプレート一致
+　一. と同様
+三. ... に一致
+四. 暗黙変換で一致
+　一. と同様
+
+例:
+class A{A operator implicit(int);};
+int f(...);	// 1
+int f(A);	// 2
+f(0); // 1 が呼ばれる
+
+複数の引数について
+1. 個々の引数についての優先度を計算
+2. 大きな括りの優先度 (一二三四: 合計) で候補を絞る
+　a. 引数の最強優先度で候補を絞る
+　b. 最強優先度の引数の数で候補を絞る
+3. 小さな括りの優先度 (1,2,3,..: 合計) で候補を絞る
+　2. と同様
+
+その引数で暗黙変換を抑制するには explicit を指定する。
+強制変換を抑制する事は出来ない。
+
+* 演算子オーバーロード
+~~~~~~~~~~~~~~~~~~~~~~
+a. 二項演算子に於いて、片方のオペランドだけであれば暗黙変換を実施する
+
+例:
+
+class A{
+public:
+	A operator implicit(void*);
+};
+
+A operator*(A,A){
+	hoge;
+}
+
+A a;
+int* p;
+
+a*a; // hoge を実施
+a*p; // 右辺だけ暗黙変換をして hoge を実施
+p*a; // 左辺だけ暗黙変換をして hoge を実施
+p*p; // 両方とも暗黙変換しないといけないで、上の演算子は適用されない
+
+b. 二項演算子に於いて、どちらのオペランドに対しても暗黙変換を実施する
+但し、組み込み型に対しては、既に二項演算が定義されているとする
+
+つまり、標準で以下の演算子が定義されている。
+template<typename T,typename U>
+void operator*(T*,U*)=delete;
+
+a*a; // OK
+a*p; // OK
+p*a; // OK
+p*p; // operator*(T*,U*) が適用されるが、実装が与えられていないのでコンパイル不可
+
+c. C# と同様に、演算子はクラス定義の中に定義する。
+　演算子のオペランドの片方の型は、必ず定義場所のクラスと同じでなければならない。
+　片方のオペランドであれば暗黙変換を実施する。
+
+=====================================================================
+		動作機構
+=====================================================================
+
+* ガード
+~~~~~~~~
+関数型言語のガード擬きを取り入れる。
+関数の宣言の先頭に、ガードを記述
+
+例:
+:- size>0 -:
+void* alloc(int size){ ... }
+
+:- p==nullptr -:
+int free(void* p){}
+
+:- p!=nullptr -:
+int free(void* p){ ... }
+
+ガードに関するコンパイル結果は呼出元で展開される。
+* どの version の関数を呼び出すかは、ガードによる条件で判断する。
+* どのガードが満たされるかを決定出来る場合には、満たされる物をその儘呼び出す。
+* 一つに確定しない場合には、それを選択するコードを呼出元に挿入する。
+* 満たすガードが一つもない場合は guard_exception を throw する関数を呼び出す。
+
+
+=====================================================================
+		Cobalt Parse メモ
+=====================================================================
+
+■keywrod
+
+new
+gcnew
+delete
+stackalloc
+sizeof
+typeof/typeid
+decltype
+
+using 
+
+■エラーの出力
+字句エラー
+構文エラー
+型エラー
+その他のエラー
+
+上記のエラーを全て位置と共に示すには、
+1. Word に位置情報も記録
+2. Word を最後まで保持する
+という事が必要である。
+
+■式の解析
+>二項演算
+>前置演算
+>後置演算
+括弧
+関数呼び出し
+三項演算子
+エラー
+　MissingOperandErr: Prefix に対して作用先がない場合
+　OperaterUsageErr: 対応する operator 形式がない場合
+
+■宣言の解析
+
+型名の解析
+type<void(*)()> ::__cdecl func()
+void (*func())(){
+
+}
