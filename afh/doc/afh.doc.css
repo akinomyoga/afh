@@ -1,0 +1,23 @@
+﻿body{background-color:#f0f0f0;}
+h1{text-align:center;background-color:#ffe;border-top:1px solid gray;border-bottom:1px solid gray;padding:5px;}
+h2{}
+h3{}
+div.comment{color:gray;font-size:85%;background-color:white;padding:5px;}
+div.comment ul{margin-top:5px;margin-bottom:5px;}
+
+pre.cs{background-color:white;padding:5px;border:1px solid gray;}
+cs\:cmt{color:green;}
+cs\:region{color:gray;border:1px solid gray;background-color:white;}
+cs\:red{color:red;}/*強調*/
+
+/* 単純な表 */
+table.normal{
+	margin-left:2em;
+	border-collapse:collapse;
+	border:1px solid black;
+}
+table.normal td,table.normal th{
+	border-color:inherit;
+	border-style:solid;
+	border-width:1px;
+}

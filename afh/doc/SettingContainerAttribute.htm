@@ -1,0 +1,325 @@
+<?xml version="1.0" enconding="utf-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:cs="">
+<head>
+<title>SettingContainerAttribute 使用方法</title>
+<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/css" />
+<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1" />
+<meta name="ProgId" content="VisualStudio.HTML" />
+<meta name="Originator" content="Microsoft Visual Studio .NET 7.1" />
+<link rel="stylesheet" href="afh.doc.css" type="text/css" />
+</head>
+<body>
+<h1>SettingContainerAttribute 概要</h1>
+<div class="comment">
+ここでは、
+<ul>
+<li>afh.Application.SettingContainerAttribute</li>
+<li>afh.Application.SettingButtonAttribute</li>
+<li>afh.Application.SettingControlAttribute</li>
+</ul>
+の属性の使用方法について説明します。
+</div>
+<p>SettingContainerAttribute その他の属性は、
+afh.Application.Setting を使用した設定をアプリケーションのユーザーが変更する為の UI を簡単に実現する為の物です。
+</p>
+<p>具体的には用意した<span title="System.Windows.Forms.ContainerControl を継承する物">フォーム</span>及び
+その<span title="制限はかけていませんが通常は Syste.Windows.Forms.Control を継承する物になると思います">フィールド</span>
+に属性を指定する事によって afh::Application::SettingKey の指定した値を変更するという機能を実現します。
+フォームに対しては SettingKey を対応付ける事が出来ます。
+一方、フォームに配置された個々のコントロールに対しては SettingKey の指定した値を対応付ける事が出来ます。
+(詳細は後述)</p>
+
+<h3>図</h3>
+<img src="sample1.png"/>
+
+<!--[section]属性の指定-->
+<h1>属性の指定</h1>
+<p>以下ではそれぞれの意味・使用方法などについて説明します。</p>
+<h2>SettingContainerAttribute</h2>
+<p>SettingContainerAttribute は設定に使用するフォームのクラス宣言、またはコンテナのクラス宣言に適用します。
+図の <span style="border:2px solid #0f0;">&nbsp;&nbsp;&nbsp;</span> の部分に対応すると思って下さい。</p>
+<p>一つの フォーム/コンテナ には一つのキー (SettingKey) が対応しています。
+キーは属性の宣言時に指定します。
+このフォーム/コンテナ上で設定される値はこのキーの中の値と対応しています。</p>
+<h3>例</h3>
+<pre class="cs">
+<cs:red>[SettingContainer]</cs:red>
+public class TestSettingForm : System.Windows.Forms.Form{
+	<cs:cmt>//...</cs:cmt>
+}
+<cs:cmt>// afh::Application::Setting.Root["MyNamespace.TestSettingForm"] に各値が保存されます。</cs:cmt>
+
+<cs:red>[SettingContainer("SamplePath")]</cs:red>
+public class TestSettingForm1 : System.Windows.Forms.Form{
+	<cs:cmt>//...</cs:cmt>
+}
+<cs:cmt>// afh::Application::Setting.Root["SamplePath"] に各値が保存されます。</cs:cmt>
+
+
+<cs:red>[SettingContainer(@"abc\def")]</cs:red>
+public class TestSettingForm2 : System.Windows.Forms.Form{
+	<cs:cmt>//...</cs:cmt>
+}
+<cs:cmt>// afh::Application::Setting.Root["abc"]["def"] に各値が保存されます。</cs:cmt>
+
+
+<cs:red>[SettingContainer(@"&lt;Class&gt;aiu\&lt;Class&gt;kakiku")]</cs:red>
+public class TestSettingForm3 : System.Windows.Forms.Form{
+	<cs:cmt>//...</cs:cmt>
+}
+<cs:cmt>// afh::Application::Setting.Root["Class","aiu"]["Class","kakiku"] に各値が保存されます。</cs:cmt>
+</pre>
+<p>
+更に、設定用のコンテナの中に更に設定用のコンテナを配置する場合には、
+内側のコンテナを保持するフィールドに SettingContainerAttribute を設定します。
+内側のコンテナの型にも SettingContainerAttribute が設定されていなければ為りません。
+</p>
+<pre class="cs">
+[SettingContainer("SAMP")]
+public class TestSettingForm:System.Windows.Forms.Form{
+	<cs:red>[SettingContainer]</cs:red>
+	private TestSettingPanel panel1;
+	<cs:cmt>// 各値は TestSettingPanel に設定されている SettingContainerAttribute
+	// に指定されているキーに保存されます</cs:cmt>
+	
+	<cs:red>[SettingContainer("aiu\iuiu")]</cs:red>
+	private TestSettingPanel panel2;
+	<cs:cmt>// 各値は Root\SAMP\aiu\iuiu に保存されます</cs:cmt>
+	
+	<cs:cmt>//...</cs:cmt>
+}
+</pre>
+
+<h2>SettingControlAttribute</h2>
+<p>コントロールの既定のプロパティの値を、設定キー上の値と関連づけます。
+指定はコンテナのフィールドに対して行います。
+図の <span style="border:1px solid #00f;">&nbsp;&nbsp;&nbsp;</span> の部分に対応すると思って下さい。</p>
+<p>対応しているコントロール、既定のプロパティ、既定の変更イベント、既定の型は以下の表の通りになります。</p>
+<table border="1" borderColor="black" style="border-collapse:collapse;">
+<tr><th>コントロールの型</th><th>既定のプロパティ</th><th>変更を検出する為に使用するイベント</th><th>値の型</th></tr>
+<tr><td>System.Windows.Forms.CheckBox</td><td>Checked</td><td>CheckedChanged</td><td>bool</td></tr>
+<tr><td>System.Windows.Forms.ComboBox</td><td>SelectedIndex</td><td>SelectedIndexChanged</td><td>int</td></tr>
+<tr><td>System.Windows.Forms.DateTimePicker</td><td>Value</td><td>ValueChanged</td><td>System.DateTime</td></tr>
+<tr><td>System.Windows.Forms.DomainUpDown</td><td>SelectedIndex</td><td>SelectedItemChanged</td><td>int</td></tr>
+<tr><td>System.Windows.Forms.HScrollBar</td><td>Value</td><td>ValueChanged</td><td>int</td></tr>
+<tr><td>System.Windows.Forms.MonthCalendar</td><td>SelectionRange</td><td>DateChanged</td><td>System.Windows.Forms.SelectionRange</td></tr>
+<tr><td>System.Windows.Forms.NumericUpDown</td><td>Value</td><td>ValueChanged</td><td>int</td></tr>
+<tr><td>System.Windows.Forms.RadioButton</td><td>Checked</td><td>CheckedChanged</td><td>bool</td></tr>
+<tr><td>System.Windows.Forms.TextBox</td><td>Text</td><td>TextChanged</td><td>string</td></tr>
+<tr><td>System.Windows.Forms.TrackBar</td><td>Value</td><td>ValueChanged</td><td>int</td></tr>
+<tr><td>System.Windows.Forms.VScrollBar</td><td>Value</td><td>ValueChanged</td><td>int</td></tr>
+<tr><td colspan="4" align="center">(以下の物は特に特別な処理を行う物です)</td></tr>
+<tr><td>System.Windows.Forms.CheckedListBox</td><td>SelectedIndices</td><td>ItemCheck</td><td>bool[]</td></tr>
+<tr><td>System.Windows.Forms.MenuItem</td><td>Checked</td><td>OnClick</td><td>bool</td></tr>
+<tr><td>System.Windows.Forms.ToolBarButton</td><td>Pushed</td><td>Parent.ButtonClick</td><td>bool</td></tr>
+</table>
+<pre class="cs">
+[SettingContainer("SamplePath")]
+public class TestSettingForm : System.Windows.Forms.Form{
+
+	<cs:red>[SettingControl("Value1")]</cs:red>
+	private System.Windows.Forms.TextBox textBox1;
+	<cs:cmt>//textBox1 の Text の値を "Value1" という値に対応付けます。
+	//既定値はフォームデザイナ上で設定された値になります。</cs:cmt>
+
+	<cs:red>[SettingControl("Value2",DefaultValue=true)]</cs:red>
+	private System.Windows.Forms.CheckBox checkBox1;
+	<cs:cmt>//checkBox1 の Checked の値を "Value2" という値に対応付けます。
+	//既定値は true です。</cs:cmt>
+
+	<cs:red>[SettingControl("Value3",DefaultValue="5")]</cs:red>
+	private System.Windows.Forms.NumericUpDown numericUpDown1;
+	<cs:cmt>//numericUpDown1 の SelectedIndex の値を "Value3" という値に対応付けます。
+	//既定値は 5 です。(対応する型へ変換可能な文字列でも指定できます。)</cs:cmt>
+	
+	<cs:cmt>//...</cs:cmt>
+}
+</pre>
+<p>亦、プロパティと変更を検出する為に使用するイベントを明示して設定する事も出来ます。以下の物は上の物と等価です。</p>
+<p></p>
+<pre class="cs">
+[SettingContainer("SamplePath")]
+public class TestSettingForm : System.Windows.Forms.Form{
+
+	<cs:red>[SettingControl("Value1","Text","TextChanged")]</cs:red>
+	private System.Windows.Forms.TextBox textBox1;
+	<cs:cmt>//textBox1 の Text の値を "Value1" という値に対応付けます。
+	//既定値はフォームデザイナ上で設定された値になります。</cs:cmt>
+
+	<cs:red>[SettingControl("Value2","Checked","CheckedChanged",DefaultValue=true)]</cs:red>
+	private System.Windows.Forms.CheckBox checkBox1;
+	<cs:cmt>//checkBox1 の Checked の値を "Value2" という値に対応付けます。
+	//既定値は true です。</cs:cmt>
+
+	<cs:red>[SettingControl("Value3","SelectedIndex","SelectedIndexChanged",DefaultValue="5")]</cs:red>
+	private System.Windows.Forms.NumericUpDown numericUpDown1;
+	<cs:cmt>//numericUpDown1 の SelectedIndex の値を "Value3" という値に対応付けます。
+	//既定値は 5 です。(対応する型へ変換可能な文字列でも指定できます。)</cs:cmt>
+	
+	<cs:cmt>//...</cs:cmt>
+}
+</pre>
+<h2>SettingButtonAttribute</h2>
+<p>ボタンに設定する事によって、値の反映、既定値に戻すなどの操作を Click イベントにフックします。
+図の <span style="border:1px solid #f00;">&nbsp;&nbsp;&nbsp;</span> の部分に対応すると思って下さい。
+フォームを閉じるなどの操作は別に記述してください。</p>
+<p>そのボタンによってどのような操作をするかは SettingButtonAttribute.Operation によって指定します。</p>
+<table border="1" bordercolor="black" style="border-collapse:collapse;">
+<tr><th>SettingButtonAttribute.Operation の値</th><th>操作</th><th>ボタンの表記例</th></tr>
+<tr><td>OK</td><td>仮設定を適用し有効にします。</td><td>[OK]</td></tr>
+<tr><td>Apply</td><td>仮設定を適用し有効にします。変更がない場合にはボタンを無効表示にします。</td><td>[適用]</td></tr>
+<tr><td>Cancel</td><td>仮設定を現在有効になっている設定に戻します。</td><td>[キャンセル]</td></tr>
+<tr><td>Restore</td><td>仮設定を現在有効になっている設定に戻します。変更がない場合にはボタンを無効表示にします。</td><td>[現在の設定]</td></tr>
+<tr><td>RestoreDefaults</td><td>仮設定として既定値を設定します。</td><td>[既定値]</td></tr>
+</table>
+<pre class="cs">
+using afh.Application;
+
+[SettingContainer("Sample1")]
+public class TestSettingForm : System.Windows.Forms.Form{
+	<cs:red>[SettingButton(SettingButtonAttribute.Operation.Cancel)]</cs:red>
+	private System.Windows.Forms.Button btnCancel;
+	<cs:red>[SettingButton(SettingButtonAttribute.Operation.OK)]</cs:red>
+	private System.Windows.Forms.Button btnOK;
+	<cs:red>[SettingButton(SettingButtonAttribute.Operation.Restore)]</cs:red>
+	private System.Windows.Forms.Button btnRest;
+	<cs:red>[SettingButton(SettingButtonAttribute.Operation.Apply)]</cs:red>
+	private System.Windows.Forms.Button btnApply;
+	<cs:red>[SettingButton(SettingButtonAttribute.Operation.RestoreDefaults)]</cs:red>
+	
+	<cs:cmt>//...</cs:cmt>
+	
+	private void btnOK_Click(object sender, System.EventArgs e){
+		<cs:red>this.DialogResult=System.Windows.Forms.DialogResult.OK;
+		this.Close();</cs:red>
+	}
+	private void btnCancel_Click(object sender, System.EventArgs e){
+		<cs:red>this.DialogResult=System.Windows.Forms.DialogResult.Cancel;
+		this.Close();</cs:red>
+	}
+}
+</pre>
+<!--[section]例-->
+<h1>初期化</h1>
+<p>
+設定を変更できる様にするには、初期化を行わなければ為りません。
+コンテナクラスの InitializeComponent を実行した後に、
+SettingContainerAttribute.InitializeContainer(this) を実行して下さい。
+</p>
+<!--[section]例-->
+<h1>例</h1>
+<h3>図の例のコード</h3>
+<p>フォームデザイナで形を整えてしまえば、自分で書かなければならない部分は以下の赤い部分だけになります。</p>
+<pre class="cs">
+using afh.Application;
+
+<cs:red>[SettingContainer("Sample1")]</cs:red>
+public class TestSettingForm : System.Windows.Forms.Form{
+	<cs:red>[SettingButton(SettingButtonAttribute.Operation.Cancel)]</cs:red>
+	private System.Windows.Forms.Button btnCancel;
+	<cs:red>[SettingButton(SettingButtonAttribute.Operation.OK)]</cs:red>
+	private System.Windows.Forms.Button btnOK;
+	<cs:red>[SettingButton(SettingButtonAttribute.Operation.Restore)]</cs:red>
+	private System.Windows.Forms.Button btnRest;
+	<cs:red>[SettingButton(SettingButtonAttribute.Operation.Apply)]</cs:red>
+	private System.Windows.Forms.Button btnApply;
+	<cs:red>[SettingButton(SettingButtonAttribute.Operation.RestoreDefaults)]</cs:red>
+	private System.Windows.Forms.Button btnDefault;
+	<cs:red>[SettingControl("Value0")]</cs:red>
+	private System.Windows.Forms.CheckBox checkBox1;
+	<cs:red>[SettingControl("Value1")]</cs:red>
+	private System.Windows.Forms.TextBox textBox1;
+	<cs:red>[SettingControl("Value2")]</cs:red>
+	private System.Windows.Forms.RadioButton radioButton1;
+	<cs:red>[SettingControl("Value3")]</cs:red>
+	private System.Windows.Forms.ComboBox comboBox1;
+	<cs:red>[SettingControl("Value4")]</cs:red>
+	private System.Windows.Forms.NumericUpDown numericUpDown1;
+	<cs:red>[SettingControl("Value5")]</cs:red>
+	private System.Windows.Forms.DomainUpDown domainUpDown1;
+	<cs:red>[SettingControl("Value6")]</cs:red>
+	private System.Windows.Forms.MonthCalendar monthCalendar1;
+	<cs:red>[SettingControl("Value7")]</cs:red>
+	private System.Windows.Forms.CheckedListBox checkedListBox1;
+	<cs:red>[SettingControl("Value8")]</cs:red>
+	private System.Windows.Forms.TrackBar trackBar1;
+	<cs:red>[SettingControl("Value9")]</cs:red>
+	private System.Windows.Forms.HScrollBar hScrollBar1;
+	<cs:red>[SettingControl("ValueA")]</cs:red>
+	private System.Windows.Forms.VScrollBar vScrollBar1;
+	<cs:red>[SettingControl("ValueB")]</cs:red>
+	private System.Windows.Forms.DateTimePicker dateTimePicker1;
+	private System.Windows.Forms.MainMenu mainMenu1;
+	private System.Windows.Forms.MenuItem menuItem1;
+	<cs:red>[SettingControl("ValueC")]</cs:red>
+	private System.Windows.Forms.MenuItem menuItem2;
+	<cs:red>[SettingControl("ValueD")]</cs:red>
+	private System.Windows.Forms.MenuItem menuItem3;
+	private System.ComponentModel.Container components=null;
+
+	/// &lt;summary>
+	/// コンストラクタ
+	/// &lt;/summary>
+	public TestSettingForm(){
+		InitializeComponent();
+		<cs:red>SettingContainerAttribute.InitializeContainer(this);</cs:red>
+	}
+
+	/// &lt;summary>
+	/// 使用されているリソースに後処理を実行します。
+	/// &lt;/summary>
+	protected override void Dispose(bool disposing){
+		if(disposing){
+			if(components!=null){
+				components.Dispose();
+			}
+		}
+		base.Dispose(disposing);
+	}
+	
+	<cs:region>Windows フォーム デザイナで生成されたコード</cs:region>
+
+	private void btnOK_Click(object sender, System.EventArgs e){
+		<cs:red>this.DialogResult=System.Windows.Forms.DialogResult.OK;
+		this.Close();</cs:red>
+	}
+	private void btnCancel_Click(object sender, System.EventArgs e){
+		<cs:red>this.DialogResult=System.Windows.Forms.DialogResult.Cancel;
+		this.Close();</cs:red>
+	}
+}
+</pre>
+<p>実際にプログラム中で設定を利用する際は、型変換やアクセスが面倒なので以下の様なクラスを作成すると良いでしょう。
+Form クラスの静的メンバとして以下の静的プロパティ等を実装するのも一つの手です。</p>
+<p></p>
+<pre class="cs">
+using afh.Application;
+
+/// &lt;summary>
+/// 設定に対するアクセスを提供します。
+/// &lt;/summary>
+public class TestSetting{
+	<cs:cmt>//※ 既定値は Form/ContainerControl を初期化するまでは、SettingKey に反映されません。
+	// よってクラスの初期化の際に Form/ContainerControl のシングルインスタンスを初期化します。
+	// 設定のウィンドウ亦はコンテナを表示する際にはこのシングルインスタンスを用いると良いでしょう。</cs:cmt>
+	private static TestSettingForm form=new TestSettingForm();
+	
+	<cs:cmt>// 設定の保存先です</cs:cmt>
+	private static SettingKey Key=Setting.Root["afh.Application.SettingContainer\\TestSettingForm"];
+	
+	public static bool CheckBox{
+		get{return afh.Convert.Convert.FromStringToBoolean(Key.Var["CheckBox"]);}
+	}
+	public static string TextBox{
+		get{return Key.Var["TextBox"];}
+	}
+	
+	<cs:cmt>//...</cs:cmt>
+	
+}
+</pre>
+</body>
+</html>

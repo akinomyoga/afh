@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:cs="http://example.com/">
+<head>
+<title>afh.Convert.Convert</title>
+<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"/>
+<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1" />
+<meta name="ProgId" content="VisualStudio.HTML"/>
+<meta name="Originator" content="Microsoft Visual Studio .NET 7.1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link rel="stylesheet" href="afh.doc.css" type="text/css" />
+</head>
+<body>
+<h1>afh.Convert.Convert</h1>
+<p>様々なオブジェクトから文字列への可逆変換を提供します。</p>
+<p>変換に対応している物、及び、その変換の方法を以下に述べます。</p>
+<h2>基本的な型</h2>
+<table border="1" bordercolor="black" style="border-collapse:collapse;">
+<tr><th>変換の対象の型</th><th>ToString に使用する物</th><th>FromString に使用する物</th></tr>
+<tr><td>System.Int16</td><td>System.Convert.ToString()</td><td>System.Convert.ToInt16()</td></tr>
+<tr><td>System.UInt16</td><td>System.Convert.ToString()</td><td>System.Convert.ToUInt16()</td></tr>
+<tr><td>System.Int32</td><td>System.Convert.ToString()</td><td>System.Convert.ToInt32()</td></tr>
+<tr><td>System.UInt32</td><td>System.Convert.ToString()</td><td>System.Convert.ToUInt32()</td></tr>
+<tr><td>System.Int64</td><td>System.Convert.ToString()</td><td>System.Convert.ToInt64()</td></tr>
+<tr><td>System.UInt64</td><td>System.Convert.ToString()</td><td>System.Convert.ToUInt64()</td></tr>
+<tr><td>System.SByte</td><td>System.Convert.ToString()</td><td>System.Convert.ToSByte()</td></tr>
+<tr><td>System.Byte</td><td>System.Convert.ToString()</td><td>System.Convert.ToByte()</td></tr>
+<tr><td>System.Decimal</td><td>System.Convert.ToString()</td><td>System.Convert.ToDecimal()</td></tr>
+<tr><td>System.Char</td><td>System.Convert.ToString()</td><td>System.Convert.ToChar()</td></tr>
+<tr><td>System.Single</td><td>System.Convert.ToString()</td><td>System.Convert.ToSingle()</td></tr>
+<tr><td>System.Double</td><td>System.Convert.ToString()</td><td>System.Convert.ToDouble()</td></tr>
+<tr><td>System.Boolean</td><td>System.Convert.ToString()</td><td>System.Convert.ToBoolean()</td></tr>
+<tr><td>System.Guid</td><td>System.Xml.XmlConvert.ToString()</td><td>System.Xml.XmlConvert.ToGuid()</td></tr>
+<tr><td>System.TimeSpan</td><td>System.Xml.XmlConvert.ToString()</td><td>System.Xml.XmlConvert.ToTimeSpan()</td></tr>
+<tr><td>System.DateTime</td><td>System.Convert.ToString()</td><td>System.Convert.ToDateTime()</td></tr>
+<tr><td>System.String</td><td>--</td><td>--</td></tr>
+<tr><td>System.IntPtr</td><td>System.Convert.ToString()</td><td>System.Convert.ToInt64()</td></tr>
+<tr><td>System.UIntPtr</td><td>System.Convert.ToString()</td><td>System.Convert.ToUInt64()</td></tr>
+<tr><td>System.Boolean[]</td><td>(独自実装)</td><td>(独自実装)</td></tr>
+</table>
+<h2>列挙体</h2>
+<dl>
+<dt>ToString</dt>
+<dd>.ToString() を使用</dd>
+<dt>FromString</dt>
+<dd>System.Enum(System.Type,string) を使用</dd>
+</dl>
+<h2>System.ComponentModel.TypeConverter が利用可能の物</h2>
+<table border="1" bordercolor="black" style="border-collapse:collapse;">
+<tr><th>変換対象の型</th><th>変換に使用する TypeConverter</th></tr>
+<tr><td>System.Globalization.CultureInfo</td><td>System.ComponentModel.CultureInfoConverter</td></tr>
+<tr><td>System.Drawing.Color</td><td>System.Drawing.ColorConverter</td></tr>
+<tr><td>System.Drawing.Font</td><td>System.Drawing.FontConverter</td></tr>
+<tr><td>System.Drawing.Image</td><td>System.Drawing.ImageConverter</td></tr>
+<tr><td>System.Drawing.Imaging.ImageFormat</td><td>System.Drawing.ImageFormatConverter</td></tr>
+<tr><td>System.Drawing.Point</td><td>System.Drawing.PointConverter</td></tr>
+<tr><td>System.Drawing.Rectangle</td><td>System.Drawing.RectangleConverter</td></tr>
+<tr><td>System.Drawing.Size</td><td>System.Drawing.SizeConverter</td></tr>
+<tr><td>System.Resources.ResXFileRef</td><td>System.Resources.ResXFileRef+Converter</td></tr>
+<tr><td>System.Windows.Forms.Cursor</td><td>System.Windows.Forms.CursorConverter</td></tr>
+<tr><td>System.Windows.Forms.LinkArea</td><td>System.Windows.Forms.LinkArea+LinkAreaConverter</td></tr>
+<tr><td>System.Windows.Forms.Binding</td><td>System.Windows.Forms.ListBindingConverter</td></tr>
+<tr><td>System.Windows.Forms.ScrollableControl+DockPaddingEdges</td><td>System.Windows.Forms.ScrollableControl+DockPaddingEdgesConverter</td></tr>
+<tr><td>System.Windows.Forms.SelectionRange</td><td>System.Windows.Forms.SelectionRangeConverter</td></tr>
+<tr><td>System.Windows.Forms.TreeNode</td><td>System.Windows.Forms.TreeNodeConverter</td></tr>
+<tr><td>System.Configuration.ConfigurationSettings</td><td>System.ComponentModel.TypeConverter</td></tr>
+<tr><td>(その他)</td><td>(System.ComponentModel.TypeConverter を継承した物)</td></tr>
+<!--
+System.ComponentModel.CollectionConverter
+
+[対応済]
+System.ComponentModel.BaseNumberConverter
+System.ComponentModel.BooleanConverter
+System.ComponentModel.CharConverter
+System.ComponentModel.DateTimeConverter
+System.ComponentModel.EnumConverter
+System.ComponentModel.GuidConverter
+System.ComponentModel.MultilineStringConverter
+System.ComponentModel.NullableConverter
+System.ComponentModel.ReferenceConverter
+System.ComponentModel.StringConverter
+System.ComponentModel.TimeSpanConverter
+System.Windows.Forms.KeysConverter
+
+[何の型か不明]
+Microsoft.VisualBasic.ApplicationServices.BuiltInRoleConverter
+System.ComponentModel.ExpandableObjectConverter
+System.ComponentModel.TypeListConverter
+System.Windows.Forms.DataGridPreferredColumnWidthTypeConverter
+System.Windows.Forms.DataGridViewCellStyleConverter
+System.Windows.Forms.OpacityConverter
+System.Drawing.FontConverter.FontNameConverter
+System.Diagnostics.Design.LogConverter
+System.Configuration.ConfigurationConverterBase
+
+[?]
+System.Drawing.SizeFConverter
+System.Windows.Forms.AxHost.StateConverter
+
+[System.Web]
+System.Web.Configuration.LowerCaseStringConverter
+System.Web.UI.Design.DataBindingCollectionConverter
+System.Web.UI.Design.DataColumnSelectionConverter
+System.Web.UI.Design.DataFieldConverter
+System.Web.UI.Design.DataMemberConverter
+System.Web.UI.Design.DataSourceConverter
+System.Web.UI.Design.DataSourceViewSchemaConverter
+System.Web.UI.Design.ExpressionsCollectionConverter
+System.Web.UI.Design.MobileControls.Converters.DataFieldConverter
+System.Web.UI.Design.MobileControls.Converters.DataMemberConverter
+System.Web.UI.Design.SkinIDTypeConverter
+System.Web.UI.Design.WebControls.DataSourceIDConverter
+System.Web.UI.WebControls.FontNamesConverter
+System.Web.UI.WebControls.FontUnitConverter
+System.Web.UI.WebControls.StringArrayConverter
+System.Web.UI.WebControls.UnitConverter
+
+[.NET Framework 2.0]
+System.Windows.Forms.PaddingConverter
+System.UriTypeConverter
+System.Windows.Forms.Layout.TableLayoutSettingsTypeConverter
+System.Windows.Forms.LinkConverter
+-->
+</table>
+<h2>System.SerializationAttribute の付いた物</h2>
+<p>文字列に変換する際には、BinaryFormatter.Serialize() でバイナリにした後 base64 で文字列に変換します。</p>
+<p>文字列から変換する際には base64 でバイナリに戻し、その後に BinaryFormatter.Deserialize() を使用します。</p>
+<h2>暗黙的キャスト演算子を定義している物</h2>
+<p>static implicit operator string(型) を使用して文字列に変換します。</p>
+<p>static implicit operator 型(string) 亦は static explicit operator 型(string) を使用して元の型に戻します。</p>
+</body>
+</html>

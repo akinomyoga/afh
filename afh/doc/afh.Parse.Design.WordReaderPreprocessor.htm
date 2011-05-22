@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:cs="http://example.com/">
+<head>
+<title>afh.Convert.Convert</title>
+<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5"/>
+<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1" />
+<meta name="ProgId" content="VisualStudio.HTML"/>
+<meta name="Originator" content="Microsoft Visual Studio .NET 7.1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link rel="stylesheet" href="afh.doc.css" type="text/css" />
+</head>
+<body>
+<h1>afh.Parse.Design.WordReaderPreprocessor</h1>
+<p>茲で述べるのは WordReaderPreprocessor の使用方法です。
+WordReaderPreprocessor は正規表現を以て、.cs ファイルの内容を唯変換するだけの物です。
+現在の変換規則に関しては以下に纏められています。</p>
+
+<table class="normal">
+<tr><th>変換前</th><th>変換後</th></tr>
+<colgroup><col span="2" style="font-family:MS Gothic;font-size:80%;" /></colgroup>
+<tr><td>"is:字"</td>		<td>(this.lreader.CurrentLetter=='字')</td></tr>
+<tr><td>"not:字"</td>		<td>!(this.lreader.CurrentLetter=='字')</td></tr>
+<tr><td>"is:文-字"</td>		<td>('文'<=this.lreader.CurrentLetter&&this.lreader.CurrentLetter<='字')</td></tr>
+<tr><td>"not:文-字"</td>	<td>!('文'<=this.lreader.CurrentLetter&&this.lreader.CurrentLetter<='字')</td></tr>
+<tr><td>"is:term"</td>		<td>(this.lreader.CurrentLetter=='\r'||this.lreader.CurrentLetter=='\n'||this.lreader.CurrentLetter=='\u2028'||this.lreader.CurrentLetter=='\u2029')</td></tr>
+<tr><td>"not:term"</td>		<td>!(this.lreader.CurrentLetter=='\r'||this.lreader.CurrentLetter=='\n'||this.lreader.CurrentLetter=='\u2028'||this.lreader.CurrentLetter=='\u2029')</td></tr>
+<tr><td>error(文字列);</td>		<td>this.lreader.SetError(文字列,0,null);</td></tr>
+<tr><td>errorexit(文字列);</td>	<td>{this.lreader.SetError(文字列,0,null);return;}</td></tr>
+<tr><td>add;</td>			<td>this.cword+=this.lreader.CurrentLetter</td></tr>
+<tr><td>if(!next)</td>		<td>if(!this.lreader.MoveNext())</td></tr>
+<tr><td>next;</td>			<td>if(!this.lreader.MoveNext())return;</td></tr>
+<tr><td>nexit;</td>			<td>{this.lreader.MoveNext();return;}</td></tr>
+<tr><td>type</td>			<td>this.lreader.CurrentLetter</td></tr>
+<tr><td>letter</td>			<td>this.lreader.CurrentType</td></tr>
+<tr><td>case term:</td>		<td>case '\r':case '\n':case '\u2028':case '\u2029':</td></tr>
+</table>
+</body>
+</html>
