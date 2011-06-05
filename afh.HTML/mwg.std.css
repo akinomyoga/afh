@@ -1,0 +1,125 @@
+﻿
+@media screen{
+	body{background-color:#f7f7ff;}
+}
+
+hr.clearboth {CLEAR: both}
+
+
+/* 見出し */
+h1{text-align:center;color:blue;}
+h2{
+	margin-left:0.5em;margin-right:0.5em;padding:.5em;
+	border:solid 1px silver;background-color:white;
+}
+h3{
+	margin-left:1.0em;margin-right:1.0em;margin-top:2em;padding-left:.5em;
+	border-bottom:3px double #0a0;font-size:large;
+}
+h4{
+	margin-left:1.5em;margin-right:1.5em;margin-top:2em;
+	color:#088;border-bottom:1px solid silver;
+	font-size:medium;
+}
+h5,h6{margin-left:2em;margin-right:2em;font-size:small;}
+
+
+/* ブロック */
+div,p,dl,table,pre{margin-left:2em;margin-right:2em;}
+ul,ol{margin-left:5em;margin-right:2em;}
+dd dl,dd p,dd div,dd table,
+li p,li div,li table,
+td p,td div{margin-left:0px;margin-right:0px;margin-top:1ex;margin-bottom:1ex;}
+dd ul,dd ol,li ul,li ol{margin-left:3em;margin-right:0px;}
+
+p{text-indent:1em;line-height:1.5em;}
+ul,ol{line-height:1.2em;}
+li,dd,dt{line-height:1.3em}
+dd{margin-bottom:1em;}
+
+
+/* ヘッダ */
+div#pagetopholder{
+	background-color:White;border:solid 1px gray;
+	padding:0px;margin-left:0px;margin-right:0px;
+	padding-bottom:1em;
+}
+table.contents{margin-top:1em;clear:both;}
+table.contents td{
+	vertical-align:top;width:20%;
+	border-left:solid 1px silver;border-right:solid 1px silver;padding-left:1ex;
+}
+table.contents td a{display:block;margin-top:5px;margin-bottom:5px;white-space:nowrap;}
+table.contents td a:hover{background-color:#eef;}
+
+div.linkbar{
+	margin-left:0px;margin-right:0px;
+	background-color:#eee;
+	white-space:nowrap;
+}
+div.linkbar *.left,
+div.linkbar *.center,
+div.linkbar *.right{padding:0px;margin:0px;display:inline;}
+div.linkbar *.left{text-align:left;width:25%;}
+div.linkbar *.center{text-align:center;width:49%;}
+div.linkbar *.right{text-align:right;width:25%;}
+
+/* フッタ */
+div.address{
+	white-space:nowrap;
+	margin-left:0px;margin-right:0px;
+	font-size:x-small;border-top:solid 1px silver;
+}
+div.address *.left,div.address *.right{margin:0px;padding:0px;display:inline;}
+div.address *.left{width:49.5%;text-align:left;}
+div.address *.right{width:49.5%;text-align:right;}
+
+p.note{border:1px solid gray;}
+div.note{
+	border:1px solid gray;
+	margin-top:1em;margin-bottom:1em;
+	padding-left:2px;padding-right:2px;
+}
+div.note p{margin:1em;}
+p.rationale{
+	border:1px solid gray;
+	margin-top:1em;margin-bottom:1em;text-indent:0ex;
+	padding:2px;padding-top:0px;
+	background-color:White;
+}
+div.rationale{
+	border:1px solid gray;
+	margin-top:1em;margin-bottom:1em;text-indent:0ex;
+	padding-left:2px;padding-right:2px;
+	background-color:White;
+}
+div.rationale p{margin:1em;}
+div.rationale:first-line,p.rationale:first-line{
+	background-color:#f0f0f0;font-style:italic;
+}
+
+/* インライン */
+strong{COLOR:red}
+a{color:Green;}
+a:hover{color:gray;}
+a.invimg img{
+	height:.8em;width:.8em;
+	border-width:0px;filter:mask(color=green);
+}
+a.invimg:hover img{filter:mask(color=gray);}
+
+A.gomenu{TEXT-ALIGN: center}
+A.gonext {TEXT-ALIGN: right}
+A.goprevious {TEXT-ALIGN: left}
+
+/* 単純な表 */
+table.normal{
+	margin-left:2em;
+	border-collapse:collapse;
+}
+table.normal td,table.normal th{
+	border:1px solid black;
+}
+td.markA{background-color:silver;}
+
+hr{height:1px;}

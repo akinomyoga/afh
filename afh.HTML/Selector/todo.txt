@@ -1,0 +1,97 @@
+﻿■afh.HTML.Selector 文法
+
+axis
+  ' ' 子孫
+  '/' 子
+  '-' 直前
+  '+' 直後
+  '<' 以前
+  '>' 以後
+
+attribute
+  'name'  プロパティ
+  '@name' 属性値
+
+modifier
+  .l  小文字に変換
+  .u  大文字に変換
+  .tb 両端の空白を削除
+  .ts 初めの空白を削除
+  .te 末端の空白を削除
+  .sub[n]   部分文字列
+  .sub[n,m] 部分文字列
+  .sub[n-m] 部分文字列
+
+operator
+  '='  等値
+  '!'  不等
+  '~'  含有 (スペース区切)
+  '<'  小也
+  '>'  大也
+  '≦' 以下
+  '≧' 以上
+
+■次期計画
+
+
+□ selector[expression]{ procedure }
+□ selector
+  axis
+    '/'   子
+    '//'  子孫
+    '+'   直後の弟
+    '++'  弟
+    '-'   直前の兄
+    '--'  兄
+    '.'   自身
+    '..'  親
+    '...' 先祖
+  
+  集合演算
+    | & ~
+  括弧 ()
+    A /B (. | /C)
+  
+□expression
+
+式評価を実装する:
+  括弧、演算子、変数、関数、メソッドなど
+
+attribute
+  '.name'  プロパティ
+  '@name' 属性値
+  'name'  変数 (代入, 追加可能)
+
+operator
+  ( )
+  関数呼出 添字演算
+  .
+  + - * / %
+  & | ^ ~
+  == != < > <= >= ~~
+  && ||
+
+メンバ
+  .length
+  .lower  小文字
+  .upper  大文字
+  .trim   空白削除
+  .trimE  空白削除 (末端)
+  .trimS  空白削除 (始め)
+  .replace(reg,rep)
+  .slice(s,e)
+  .substr(s,l)
+  .startsWith(str)
+  .endsWith(str)
+  
+関数
+  int string double bool
+  floor ceil max min
+  sin cos tan asin acos atan atan2
+  exp log ln lb pow
+
+破壊的演算 (for 変数)
+  += -= *= /= %=
+  << (配列追加)
+  ++ --
+
