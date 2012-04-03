@@ -1,0 +1,199 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F4AFB459-96B1-4AB1-A8EF-DA8B272B9A0B}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>afh</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>afh</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\afh.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application\afh.Application.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="afh.Convert.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="afh.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="afh.Drawing.cs" />
+    <Compile Include="Collections\CollectionEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <None Include="Collections\[!compile]CollectionEditorComponent.cs">
+      <SubType>Component</SubType>
+    </None>
+    <Compile Include="Collections\CollectionEditorBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Enumeration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="Collections\[!compile]CollectionEditor.cs">
+      <SubType>UserControl</SubType>
+    </None>
+    <Compile Include="Configuration\ConfirmOverwriteSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuration\Setting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\SettingContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.cs" />
+    <None Include="Collections\[!compile]Test.cs">
+      <SubType>Form</SubType>
+    </None>
+    <Compile Include="Enumerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Application\Log.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Application\LogView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Parse\LetterReader.cs" />
+    <Compile Include="Parse\LetterType.cs" />
+    <Compile Include="Parse\WordReader.cs" />
+    <Compile Include="Parse\WordReader_Number.cs" />
+    <Compile Include="Parse\WordReader_String.cs" />
+    <Compile Include="Plugin\PluginReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Plugin\PluginSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Collections\afh.Collections.cs">
+    </Compile>
+    <EmbeddedResource Include="Application\Log.bmp" />
+    <EmbeddedResource Include="Application\LogView.bmp" />
+    <EmbeddedResource Include="Collections\[!compile]CollectionEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>[!compile]CollectionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Collections\CollectionEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CollectionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Collections\[!compile]CollectionEditorComponent.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>[!compile]CollectionEditorComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Collections\CollectionEditorBase.resx">
+      <DependentUpon>CollectionEditorBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\ConfirmOverwriteSetting.resx">
+      <DependentUpon>ConfirmOverwriteSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Application\Log.resx">
+      <DependentUpon>Log.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Application\LogView.resx">
+      <DependentUpon>LogView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Collections\[!compile]Test.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>[!compile]Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\PluginSetting.resx">
+      <DependentUpon>PluginSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\SettingTreePanel.bmp" />
+    <Content Include="doc\afh.Convert.Convert.htm" />
+    <Content Include="doc\SettingContainerAttribute.htm" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

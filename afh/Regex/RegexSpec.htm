@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<title>afh.RegularExpressions 仕様</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="stylesheet" type="text/css" charset="utf-8" href="http://myoga.web.fc2.com/mwg2/mwg.std.css" />
+<style type="text/css">
+h1{font-family:"Times New Roman","MS PMincho"}
+pre.cs{background-color:#f8fff8;padding:1ex;border:1px solid silver;}
+hr{height:1px;}
+</style>
+</head>
+<body>
+<h1>afh.RegularExpressions 仕様</h1>
+<!--
+<ul>
+<li>B - Boost</li>
+<li>G - GNU</li>
+<li>P - Perl</li>
+<li>O - 鬼車</li>
+<li>R - Ruby</li>
+<li>C - CLR</li>
+<li>V - Visual Studio / CAtlRegExp</li>
+</ul>
+-->
+<h2>共通仕様</h2>
+<h3>文字・アンカー</h3>
+<table class="normal">
+<tr><th>表現</th><th>対応</th><th colspan="2">意味</th></tr>
+<tr><td><code>.</code></td><td>○</td><td>任意の要素に一致します。</td></tr>
+<tr><td><code>^</code></td><td>○</td><td>一番初めの位置に一致します。</td></tr>
+<tr><td><code>$</code></td><td>○</td><td>一番最後の位置に一致します。</td></tr>
+</table>
+<h3>量指定</h3>
+<table class="normal">
+<tr><th>表現</th><th>対応</th><th colspan="2">意味</th></tr>
+<colgroup>
+ <col /><col /><col span="2" style="width:40%;" />
+</colgroup>
+<tr><td><code><strong>exp</strong>?</code></td><td>○</td><td colspan="2">零回または一回一致させます。</td></tr>
+<tr><td><code><strong>exp</strong>+</code></td><td>○</td>
+	<td colspan="2" rowspan="2">一回以上一致させます。</td></tr>
+<tr><td><code><strong>exp</strong>#</code></td><td>×</td></tr>
+<tr><td><code><strong>exp</strong>*</code></td><td>○</td>
+	<td colspan="2" rowspan="2">零回以上一致させます。</td></tr>
+<tr><td><code><strong>exp</strong>@</code></td><td>×</td></tr>
+<tr><td><code><strong>exp</strong>{<strong>m</strong>}</code></td><td>○</td>
+	<td colspan="2" rowspan="2">m 回一致させます。</td></tr>
+<tr><td><code><strong>exp</strong>^<strong>m</strong></code></td><td>×</td></tr>
+<tr><td><code><strong>exp</strong>{<strong>m</strong>,<strong>n</strong>}</code></td><td>○</td><td colspan="2">m 回以上 n 回以下一致させます。</td></tr>
+<tr><td><code><strong>exp</strong>{<strong>m</strong>,}</code></td><td>○</td><td colspan="2">m 回以上一致させます。</td></tr>
+<tr><td><code><strong>exp</strong>??</code></td><td>○</td><td>零回または一回一致させます。</td>
+	<td rowspan="9">出来るだけ少ない回数の一致を優先させます。</td></tr>
+<tr><td><code><strong>exp</strong>+?</code></td><td>○</td><td>一回以上一致させます。</td></tr>
+<tr><td><code><strong>exp</strong>*?</code></td><td>○</td><td>零回以上一致させます。</td></tr>
+<tr><td><code><strong>exp</strong>{<strong>m</strong>?}</code></td><td>○</td><td>m 回一致させます。<strong>単なる {m} と動作は同じです</strong>。</td></tr>
+<tr><td><code><strong>exp</strong>{<strong>m</strong>,<strong>n</strong>?}</code></td><td>○</td><td>m 回以上 n 回以下一致させます。</td></tr>
+<tr><td><code><strong>exp</strong>{<strong>m</strong>,?}</code></td><td>○</td><td>m 回以上一致させます。</td></tr>
+<tr><td><code><strong>exp</strong>{<strong>m</strong>}?</code></td>
+	<td><strong>異</strong></td><td>他の意味に取られます。/* (?:exp{m})? と解釈されます。*/</td></tr>
+<tr><td><code><strong>exp</strong>{<strong>m</strong>,<strong>n</strong>}?</code></td>
+	<td><strong>異</strong></td><td>他の意味に取られます。/* (?:exp{m,n})? と解釈されます。*/</td></tr>
+<tr><td><code><strong>exp</strong>{<strong>m</strong>,}?</code></td>
+	<td><strong>異</strong></td><td>他の意味に取られます。 /* (?:exp{m,})? と解釈されます。*/</td></tr>
+<tr><td><code><strong>exp</strong>?+</code></td><td>○</td><td>零回または一回一致させます。</td>
+	<td rowspan="6">
+	<p>一致回数を減らすバックトラッキングは行いません。
+	但し、中の要素のバックトラッキングは行われます。</p>
+	<p>例えば、/(abc?)*+/ を "abcabx" に適用すると "abcab" 及び "ab" に一致します。
+	( /(?>(abc?)*)/ とは異なるのです。)</p>
+	</td></tr>
+<tr><td><code><strong>exp</strong>++</code></td><td>○</td><td>一回以上一致させます。</td></tr>
+<tr><td><code><strong>exp</strong>*+</code></td><td>○</td><td>零回以上一致させます。</td></tr>
+<tr><td><code><strong>exp</strong>{<strong>m</strong>+}</code></td><td>○</td><td>m 回一致させます。<strong>単なる {m} と動作は同じです</strong>。</td></tr>
+<tr><td><code><strong>exp</strong>{<strong>m</strong>,<strong>n</strong>+}</code></td><td>○</td><td>m 回以上 n 回以下一致させます。</td></tr>
+<tr><td><code><strong>exp</strong>{<strong>m</strong>,+}</code></td><td>○</td><td>m 回以上一致させます。</td></tr>
+</table>
+<h3>グループ</h3>
+<table class="normal">
+<tr><th>表現</th><th>対応</th><th>意味</th></tr>
+<tr><td><code>(?:<strong>exp</strong>)</code></td><td>○</td><td>唯の括弧です。</td></tr>
+<tr><td><code>(<strong>exp</strong>)</code></td><td>○</td><td>キャプチャ括弧です。番号で参照されます。</td></tr>
+<tr><td><code>(?&lt;<strong>name</strong>&gt;<strong>exp</strong>)</code></td>
+	<td>○</td><td rowspan="2">名前付きキャプチャ括弧です。番号で参照も出来ます。
+	<p><strong>番号は名前付き・名前無しに拘わらず "(" が先に登場する順に付けられます。</strong></p>
+	</td></tr>
+<tr><td><code>(?'<strong>name</strong>'<strong>exp</strong>)</code></td><td>廃</td></tr>
+<tr><td><code>(?&lt;<strong>name</strong>-<strong>nameRef</strong>&gt;<strong>exp</strong>)</code></td>
+	<td>×</td><td>グループ定義の均等化です。対応しません。</td></tr>
+<tr><td><code>(?=<strong>exp</strong>)</code></td><td>○</td><td>正の先読みアサーションです。</td></tr>
+<tr><td><code>(?!<strong>exp</strong>)</code></td><td>○</td>
+	<td rowspan="2">負の先読みアサーションです。</td></tr>
+<tr><td><code>~<strong>exp</strong></code></td><td>×</td></tr>
+<tr><td><code>(?&lt;=<strong>exp</strong>)</code></td><td>未</td><td>正の戻り読みアサーションです。</td></tr>
+<tr><td><code>(?&lt;!<strong>exp</strong>)</code></td><td>未</td><td>負の戻り読みアサーションです。</td></tr>
+<tr><td><code>(?&gt;<strong>exp</strong>)</code></td><td>○</td><td>非バックトラッキング部分式です。</td></tr>
+<tr><td><code>(?<strong>flags1</strong>-<strong>flags2</strong>:<strong>exp</strong>)</code></td>
+	<td>未</td><td>フラグの変更を行うグループです。</td></tr>
+<tr><td><code>(?<strong>flags1</strong>-<strong>flags2</strong>)</code></td>
+	<td>未</td><td>そのグループ内でのフラグを途中から変更します。</td></tr>
+<tr><td><code>(?#<strong>comment</strong>)</code></td><td>○</td><td>コメントです。コメント内では ) を使用出来ません。</td></tr>
+</table>
+<h3>参照</h3>
+<table class="normal">
+<tr><th>表現</th><th>対応</th><th>意味</th></tr>
+<tr><td><code>$<strong>n</strong></code></td><td>未</td>
+	<td rowspan="4">番号指定の前方参照です。n 番目のキャプチャに最後に一致した内容と同じ物に一致します。</td></tr>
+<tr><td><code>\<strong>n</strong></code></td><td><strong>異</strong></td></tr>
+<tr><td><code>\k'<strong>n</strong>'</code></td><td>×</td></tr>
+<tr><td><code>\k&lt;<strong>n</strong>&gt;</code></td><td>×</td></tr>
+<tr><td><code>$&lt;<strong>name</strong>&gt;</code></td><td>未</td>
+	<td rowspan="3">名前指定の前方参照です。指定した名前のキャプチャで最後に一致した内容と同じ物に一致します。</td></tr>
+<tr><td><code>\k&lt;<strong>name</strong>&gt;</code></td><td>×</td></tr>
+<tr><td><code>\k'<strong>name</strong>'</code></td><td>×</td></tr>
+<tr><td><code>:&lt;<strong>name</strong>&gt;</code></td><td>未</td>
+	<td rowspan="3">部分式の参照 /* 左再帰に注意 */</td></tr>
+<tr><td><code>\g&lt;<strong>name</strong>&gt;</code></td><td>×</td></tr>
+<tr><td><code>\g'<strong>name</strong>'</code></td><td>×</td></tr>
+<tr><td><code>:{<strong>name</strong>}</code></td><td>未</td>
+	<td>外部定義された式への参照</td></tr>
+</table>
+<!--=================================================================-->
+<h2>StringRegex 仕様</h2>
+<p>StrinRegex は System.String を対象とした正規表現です。</p>
+<!--=================================================================-->
+<h3>文字指定</h3>
+<h4>単一文字</h4>
+<table class="normal">
+<tr><th>表現</th><th>対応</th><th>意味</th></tr>
+<tr><td><code>\</code><strong>*</strong></td><td>○'</td><td>記号のエスケープ
+	<p>対応している物 </p>
+	<ul>
+	<li><code>\( \) \[ \] \&lt; \&gt; \{ \} \| \+ \- \* \? \! \\ \' \^ \$ \. \:</code></li>
+	<li><code>\0 \1 \2 \3 \4 \5 \6 \7 \8 \9</code>
+		<p>※ 前方参照には $n の形を使用します。これは例えば /$1\2/ と記述して /$12/ ではなく /$1(?#)2\/ と解釈して貰う為に使用します。</p>
+	</li>
+	</ul>
+	<p>※ 他の物には対応しません。不要な物にまで \ を付けるとエラーを発します。</p>
+</td></tr>
+<tr><td><strong>a</strong></td><td>○</td><td>
+	普通の文字。上のエスケープ指定に載っていない物は、全て直接記述出来ます。
+	数字に関しても、曖昧 ($1\2 の様な場合) でない場合には直接記述出来ます。
+</td></tr>
+<tr><td><code>\</code><strong>a</strong></td><td>○'</td><td>特別な文字の表現
+	<p>対応している物 <code>\t \v \n \r \f \a \e</code></p>
+	<p>別の意味になる物 <code>\b</code></p>
+</td></tr>
+<tr><td><code>\x{<strong>XXXX</strong>}</code></td><td>未</td>
+	<td rowspan="5">文字コードに対応する文字に一致します。</td></tr>
+<tr><td><code>\x<strong>XXXX</strong></code></td><td>×</td></tr>
+<tr><td><code>\u<strong>XXXX</strong></code></td><td>×</td></tr>
+<tr><td><code>\0<strong>dd</strong></code></td><td>×</td></tr>
+<tr><td><code>\x<strong>XX</strong></code></td><td>×</td></tr>
+<tr><td><code>\c<strong>A</strong></code></td><td>×</td>
+	<td rowspan="3">制御文字を 「Ctrl + 何とか」の形で指定します。
+	→ 直接文字コードで指定して下さい。</td></tr>
+<tr><td><code>\C-<strong>A</strong></code></td><td>×</td></tr>
+<tr><td><code>\M-<strong>A</strong></code></td><td>×</td></tr>
+</table>
+<h4>原子文字クラス</h4>
+<table class="normal">
+<tr><th>表現</th><th>対応</th><th>意味</th></tr>
+<tr><td><code>\w</code></td><td>○</td><td>アルファベット・数字・アンダースコアに一致します。</td></tr>
+<tr><td><code>\W</code></td><td>○</td><td>{アルファベット・数字・アンダースコア} 以外に一致します。</td></tr>
+<tr><td><code>\d</code></td><td>○</td><td rowspan="2">数字に一致します。</td></tr>
+<tr><td><code>:d</code></td><td>×</td></tr>
+<tr><td><code>\D</code></td><td>○</td><td>数字以外に一致します。</td></tr>
+<tr><td><code>\s</code></td><td>○</td>
+	<td rowspan="2">空白文字に一致します。</td></tr>
+<tr><td><code>:b</code></td><td>×</td></tr>
+<tr><td><code>\S</code></td><td>○</td><td>空白文字以外に一致します。</td></tr>
+<tr><td><code>\ｗ</code></td><td>○</td><td>Unicode の普通の文字に一致します。</td></tr>
+<tr><td><code>\Ｗ</code></td><td>○</td><td>Unicode の普通でない文字に一致します。</td></tr>
+<tr><td><code>\ｄ</code></td><td>○</td><td>Unicode の数字に一致します。</td></tr>
+<tr><td><code>\Ｄ</code></td><td>○</td><td>Unicode の数字以外に一致します。</td></tr>
+<tr><td><code>\ｓ</code></td><td>○</td><td>Unicode の空白文字に一致します。</td></tr>
+<tr><td><code>\Ｓ</code></td><td>○</td><td>Unicode の空白以外の文字に一致します。</td></tr>
+<tr><td><code>\p{<strong>name</strong>}</code></td><td>○</td>
+	<td rowspan="3">名前付き文字クラスに属する文字に一致します。</td></tr>
+<tr><td><code>[:<strong>name</strong>:]</code></td><td>×</td></tr>
+<tr><td><code>:<strong>name</strong></code></td><td>×</td></tr>
+<tr><td><code>\P{<strong>name</strong>}</code></td><td>○</td>
+	<td rowspan="3">名前付き文字クラスに属さない文字に一致します。</td></tr>
+<tr><td><code>\p{^<strong>name</strong>}</code></td><td>×</td></tr>
+<tr><td><code>[:^<strong>name</strong>:]</code></td><td>×</td></tr>
+<tr><td><code>\l</code></td><td>×</td><td>英小文字に一致します。→\p{lower} [a-z]</td></tr>
+<tr><td><code>\L</code></td><td>×</td><td>英小文字以外に一致します。→\P{lower} [^a-z]</td></tr>
+<tr><td><code>\u</code></td><td>×</td><td>英大文字に一致します。→\p{upper} [A-Z]</td></tr>
+<tr><td><code>\U</code></td><td>×</td><td>英大文字以外に一致します。→\P{upper} [^A-Z]</td></tr>
+<tr><td><code>\C</code></td><td>×</td><td>任意の文字に一致します。→/./</td></tr>
+<tr><td><code>\X</code></td><td>×</td><td>Unicode 結合文字に一致します。</td></tr>
+<tr><td><code>\Q</code></td><td>未</td><td>文字列リテラル (非正規表現) の開始を示します。</td></tr>
+<tr><td><code>\E</code></td><td>未</td><td>文字列リテラル (被正規表現) の終了を示します。</td></tr>
+<tr><td><code>\h</code></td><td>×</td><td>十六進数字に一致します。→\p{xdigit} [0-9a-fA-F]</td></tr>
+<tr><td><code>\H</code></td><td>×</td><td>十六進数字以外に一致します。→\P{xdigit}</td></tr>
+<tr><td><code>:a</code></td><td>×</td><td>英数字に一致します。→/[a-zA-Z0-9]/</td></tr>
+<tr><td><code>:c</code></td><td>×</td><td>英字に一致します。→/\p{alpha}/, /[a-zA-Z]/</td></tr>
+</table>
+<!--
+\w BGPO?C-
+\W BGPO?C-
+\d B-PO?C-
+\D B-PO?C-
+\s BxPO?C-
+\S BxPO?C-
+\p --?O?C-
+[: BG?O?--
+\P --?O?C-
+[:^--?O?--
+\l B-x-?--
+\L B-x-?--
+\u B-x-?x-
+\U B-x-?--
+\C B-?-?--
+\X B-?-?--
+\Q B-Po?--
+\E B-po?--
+\h --?O?-x
+\H --?O?--
+-->
+<h5>名前付き文字クラス</h5>
+<p>対応している「名前付き文字クラス」の名前一覧を掲載します。</p>
+<p>※ 文字クラスを実際に指定する場合には、大文字小文字は区別しません。
+更に、間にハイフンが入っていても認識します。
+先頭に Is が付いていても認識します。</p>
+<ul>
+<li>Unicode General Category 関連
+	<p>Lu, Ll, Lt, Lm, Lo, Mn, Mc, Me, Nd, Nl, No, Pc, Pd, Ps, Pe, Pi, Pf, Po,
+	Sm, Sc, Sk, So, Zs, Zl, Zp, Cc, Cf, Cs, Co, Cn,
+	C, L, M, N, P, S, Z</p>
+</li>
+<li>Unicode Blocks 関連
+	<p>BasicLatin, Latin1Supplement, LatinExtendedA, LatinExtendedB, IPAExtensions, SpacingModifierLetters, 
+	CombiningDiacriticalMarks, GreekAndCoptic, Cyrillic, CyrillicSupplement, Armenian, Hebrew, Arabic, Syriac, ArabicSupplement, 
+	Thaana, NKo, Devanagari, Bengali, Gurmukhi, Gujarati, Oriya, Tamil, Telugu, Kannada, Malayalam, Sinhala, Thai, Lao, 
+	Tibetan, Myanmar, Georgian, HangulJamo, Ethiopic, EthiopicSupplement, Cherokee, UnifiedCanadianAboriginalSyllabics, 
+	Ogham, Runic, Tagalog, Hanunoo, Buhid, Tagbanwa, Khmer, Mongolian, Limbu, TaiLe, NewTaiLue, KhmerSymbols, Buginese, 
+	Balinese, Sundanese, Lepcha, OlChiki, PhoneticExtensions, PhoneticExtensionsSupplement, CombiningDiacriticalMarksSupplement, 
+	LatinExtendedAdditional, GreekExtended, GeneralPunctuation, SuperscriptsAndSubscripts, CurrencySymbols, CombiningDiacriticalMarksForSymbols, 
+	LetterlikeSymbols, NumberForms, Arrows, MathematicalOperators, MiscellaneousTechnical, ControlPictures, OpticalCharacterRecognition, 
+	EnclosedAlphanumerics, BoxDrawing, BlockElements, GeometricShapes, MiscellaneousSymbols, Dingbats, MiscellaneousMathematicalSymbolsA, 
+	SupplementalArrowsA, BraillePatterns, SupplementalArrowsB, MiscellaneousMathematicalSymbolsB, SupplementalMathematicalOperators, 
+	MiscellaneousSymbolsAndArrows, Glagolitic, LatinExtendedC, Coptic, GeorgianSupplement, Tifinagh, EthiopicExtended, 
+	CyrillicExtendedA, SupplementalPunctuation, CJKRadicalsSupplement, KangxiRadicals, IdeographicDescriptionCharacters, 
+	CJKSymbolsAndPunctuation, Hiragana, Katakana, Bopomofo, HangulCompatibilityJamo, Kanbun, BopomofoExtended, CJKStrokes, 
+	KatakanaPhoneticExtensions, EnclosedCJKLettersAndMonths, CJKCompatibility, CJKUnifiedIdeographsExtensionA, 
+	YijingHexagramSymbols, CJKUnifiedIdeographs, YiSyllables, YiRadicals, Vai, CyrillicExtendedB, ModifierToneLetters, 
+	LatinExtendedD, SylotiNagri, PhagsPa, Saurashtra, KayahLi, Rejang, Cham, HangulSyllables, HighSurrogates, HighPrivateUseSurrogates, 
+	LowSurrogates, PrivateUseArea, CJKCompatibilityIdeographs, AlphabeticPresentationForms, ArabicPresentationFormsA, 
+	VariationSelectors, VerticalForms, CombiningHalfMarks, CJKCompatibilityForms, SmallFormVariants, ArabicPresentationFormsB, 
+	HalfwidthAndFullwidthForms, Specials, LinearBSyllabary, LinearBIdeograms, AegeanNumbers, AncientGreekNumbers, 
+	AncientSymbols, PhaistosDisc, Lycian, Carian, OldItalic, Gothic, Ugaritic, OldPersian, Deseret, Shavian, Osmanya, 
+	CypriotSyllabary, Phoenician, Lydian, Kharoshthi, Cuneiform, CuneiformNumbersAndPunctuation, ByzantineMusicalSymbols, 
+	MusicalSymbols, AncientGreekMusicalNotation, TaiXuanJingSymbols, CountingRodNumerals, MathematicalAlphanumericSymbols, 
+	MahjongTiles, DominoTiles, CJKUnifiedIdeographsExtensionB, CJKCompatibilityIdeographsSupplement, Tags, VariationSelectorsSupplement, 
+	SupplementaryPrivateUseAreaA, SupplementaryPrivateUseAreaB, No_Blocks</p>
+</li>
+<li>C Language - Character Type 関連
+	<p>upper, lower, digit, punct, cntrl, blank, xdigit, space, alpha, alnum, graph, print, ascii, csymf, csym, word</p>
+</li>
+</ul>
+<p>対応していない文字クラス名一覧は</p>
+<ul>
+<li>--</li>
+</ul>
+
+<h4>文字クラス括弧</h4>
+<p>文字クラス括弧は、<code>[<strong>...</strong>]</code> または <code>[^<strong>...</strong>]</code> の形の物です。
+<strong>...</strong> の部分には以下の構成子を複数並べて指定する事が可能です。
+各構成子は左から順番に評価されて文字クラスに文字を追加したり、削除したりします。</p>
+<table class="normal">
+<tr><th>構成子</th><th>対応</th><th>意味</th></tr>
+<tr><td><code><strong>a</strong></code></td>
+	<td>○</td><td>単一文字を文字クラスに追加します。上記の「単一文字」指定が可能です。</td></tr>
+<tr><td><code>\b</code></td>
+	<td>○</td><td>バックスペース文字を文字クラスに追加します。</td></tr>
+<tr><td><code>\<strong>w</strong></code></td>
+	<td>○</td><td>原子文字クラスをこの文字クラスに追加します。上記の「原子文字クラス」指定が可能です。</td></tr>
+<tr><td><code><strong>a</strong>-<strong>z</strong></code></td>
+	<td>○</td><td>指定した範囲指定の文字を文字クラスに追加します。
+	但し、<strong>a</strong> 及び <strong>z</strong> には上記の「単一文字」指定又は \b のみ、指定する事が可能です。</td></tr>
+<tr><td><code>-[<strong>...</strong>]</code></td>
+	<td>○</td><td><code>[<strong>...</strong>]</code> で表される文字クラスに属する文字を、
+	この文字クラスから除去します。(-[] の中に更に -[] を入れ子にする事も可能です。)
+	</td></tr>
+</table>
+<p>例えば、[a-z-[d-p]g-n-[k]] と指定すると 「a-z から d-p を除いて、更に g-n を加えて k を取り除いた文字集合」
+則ち、[a-cg-il-nq-z] になります。</p>
+<!--=================================================================-->
+<h3>アンカー</h3>
+<table class="normal">
+<tr><th>表現</th><th>対応</th><th>意味</th></tr>
+<tr><td><code>\b</code></td><td>○</td>
+	<td>単語境界に一致します。
+	則ち、\w と \W の間、或いは、文字列の先頭・末端の \w に一致します。
+	</td></tr>
+<tr><td><code>\B</code></td><td>○</td><td>\b 以外の場所に一致します。</td></tr>
+<tr><td><code>\ｂ</code></td><td>○</td>
+	<td>単語境界に一致します。
+	則ち、\ｗ と \Ｗ の間、或いは、文字列の先頭・末端の \ｗ に一致します。
+	</td></tr>
+<tr><td><code>\Ｂ</code></td><td>○</td><td>\ｂ 以外の場所に一致します。</td></tr>
+<tr><td><code>\A</code></td><td>未</td><td>文字列の先頭に一致します。</td></tr>
+<tr><td><code>\Z</code></td><td>未</td><td>文字列の末端に一致します。末端に改行がある場合は無視されます。</td></tr>
+<tr><td><code>\z</code></td><td>未</td><td>文字列の末端に一致します。</td></tr>
+<tr><td><code>\G</code></td><td>未</td><td>前回マッチした部分の終端に一致します。</td></tr>
+</table>
+<!--=================================================================-->
+<h3>既定のパターン</h3>
+<table class="normal">
+<tr><th>表現</th><th>対応</th><th>意味</th></tr>
+<tr><td><code>:n</code></td><td>○</td><td>改行に一致します。/\r?\n|\r/</td></tr>
+<tr><td><code>:"</code></td><td>○</td><td>文字列リテラルに一致します。 /"(?:[^"\\\r\n\f]|\\.)*"/</td></tr>
+<tr><td><code>:w</code></td><td>○</td><td>識別子に一致します。/\b\p{csymf}\p{csym}*\b/</td></tr>
+<tr><td><code>:ｗ</code></td><td>○</td><td>Unicode 文字から為る識別子に一致します。/\ｂ[\ｗ-[\d]]\ｗ*\ｂ/</td></tr>
+<tr><td><code>:'</code></td><td>未</td>
+	<td>文字リテラルに一致します。
+	<!--C# /'(?:[^\\]|\\(?:[xu]\p{xdigit}{4}|\U\p{xdigit}{8}))'/--></td></tr>
+<tr><td><code>:d</code></td><td>未</td><td>整数リテラルに一致します。</td></tr>
+<tr><td><code>:f</code></td><td>未</td><td>実数リテラルに一致します。</td></tr>
+</table>
+</body>
+</html>

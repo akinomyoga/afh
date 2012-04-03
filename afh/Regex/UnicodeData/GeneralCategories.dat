@@ -1,0 +1,1168 @@
+==== Charcode-Range 0000 - 00FF ====
+Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,
+Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,
+Zs,Po,Po,Po,Sc,Po,Po,Po,Ps,Pe,Po,Sm,Po,Pd,Po,Po,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Po,Po,Sm,Sm,Sm,Po,
+Po,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Ps,Po,Pe,Sk,Pc,
+Sk,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ps,Sm,Pe,Sm,Cc,
+Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,
+Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,Cc,
+Zs,Po,Sc,Sc,Sc,Sc,So,So,Sk,So,Ll,Pi,Sm,Cf,So,Sk,
+So,Sm,No,No,Sk,Ll,So,Po,Sk,No,Ll,Pf,No,No,No,Po,
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Sm,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Sm,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+==== Charcode-Range 0100 - 01FF ====
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,
+Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Lu,Ll,Lu,Ll,Lu,Ll,Ll,
+Ll,Lu,Lu,Ll,Lu,Ll,Lu,Lu,Ll,Lu,Lu,Lu,Ll,Ll,Lu,Lu,
+Lu,Lu,Ll,Lu,Lu,Ll,Lu,Lu,Lu,Ll,Ll,Ll,Lu,Lu,Ll,Lu,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Lu,Ll,Lu,Ll,Ll,Lu,Ll,Lu,Lu,
+Ll,Lu,Lu,Lu,Ll,Lu,Ll,Lu,Lu,Ll,Ll,Lo,Lu,Ll,Ll,Ll,
+Lo,Lo,Lo,Lo,Lu,Lt,Ll,Lu,Lt,Ll,Lu,Lt,Ll,Lu,Ll,Lu,
+Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Ll,Lu,Lt,Ll,Lu,Ll,Lu,Lu,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+==== Charcode-Range 0200 - 02FF ====
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Lu,Lu,Ll,Lu,Lu,Ll,
+Ll,Lu,Ll,Lu,Lu,Lu,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Lo,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,
+Lm,Lm,Sk,Sk,Sk,Sk,Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,
+Lm,Lm,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,
+Lm,Lm,Lm,Lm,Lm,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Lm,Sk,Lm,Sk,
+Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,
+==== Charcode-Range 0300 - 03FF ====
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Lu,Ll,Lu,Ll,Lm,Sk,Lu,Ll,Cn,Cn,Lm,Ll,Ll,Ll,Po,Cn,
+Cn,Cn,Cn,Cn,Sk,Sk,Lu,Po,Lu,Lu,Lu,Cn,Lu,Cn,Lu,Lu,
+Ll,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Lu,Lu,Cn,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Lu,
+Ll,Ll,Lu,Lu,Lu,Ll,Ll,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Ll,Ll,Ll,Ll,Lu,Ll,Sm,Lu,Ll,Lu,Lu,Ll,Ll,Lu,Lu,Lu,
+==== Charcode-Range 0400 - 04FF ====
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,So,Mn,Mn,Mn,Mn,Mn,Me,Me,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+==== Charcode-Range 0500 - 05FF ====
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Cn,Cn,Lm,Po,Po,Po,Po,Po,Po,
+Cn,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Cn,Po,Pd,Cn,Cn,Cn,Cn,Cn,
+Cn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Pd,Mn,
+Po,Mn,Mn,Po,Mn,Mn,Po,Mn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Po,Po,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 0600 - 06FF ====
+Cf,Cf,Cf,Cf,Cn,Cn,Sm,Sm,Sm,Po,Po,Sc,Po,Po,So,So,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Po,Cn,Cn,Po,Po,
+Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lm,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Cn,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Po,Po,Po,Po,Lo,Lo,
+Mn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Po,Lo,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Cf,Me,Mn,
+Mn,Mn,Mn,Mn,Mn,Lm,Lm,Mn,Mn,So,Mn,Mn,Mn,Mn,Lo,Lo,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Lo,Lo,Lo,So,So,Lo,
+==== Charcode-Range 0700 - 07FF ====
+Po,Po,Po,Po,Po,Po,Po,Po,Po,Po,Po,Po,Po,Po,Cn,Cf,
+Lo,Mn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Cn,Cn,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Lo,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Lm,Lm,So,Po,Po,Po,Lm,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 0800 - 08FF ====
+
+==== Charcode-Range 0900 - 09FF ====
+Cn,Mn,Mn,Mc,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Mn,Lo,Mc,Mc,
+Mc,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mc,Mc,Mc,Mc,Mn,Cn,Cn,
+Lo,Mn,Mn,Mn,Mn,Cn,Cn,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Mn,Mn,Po,Po,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,
+Po,Lm,Lo,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Lo,Lo,Lo,Lo,Lo,
+Cn,Mn,Mc,Mc,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Lo,
+Lo,Cn,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Cn,Lo,Cn,Cn,Cn,Lo,Lo,Lo,Lo,Cn,Cn,Mn,Lo,Mc,Mc,
+Mc,Mn,Mn,Mn,Mn,Cn,Cn,Mc,Mc,Cn,Cn,Mc,Mc,Mn,Lo,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Mc,Cn,Cn,Cn,Cn,Lo,Lo,Cn,Lo,
+Lo,Lo,Mn,Mn,Cn,Cn,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,
+Lo,Lo,Sc,Sc,No,No,No,No,No,No,So,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 0A00 - 0AFF ====
+Cn,Mn,Mn,Mc,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Cn,Lo,
+Lo,Cn,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Cn,Lo,Lo,Cn,Lo,Lo,Cn,Lo,Lo,Cn,Cn,Mn,Cn,Mc,Mc,
+Mc,Mn,Mn,Cn,Cn,Cn,Cn,Mn,Mn,Cn,Cn,Mn,Mn,Mn,Cn,Cn,
+Cn,Mn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Lo,Lo,Lo,Lo,Cn,Lo,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,
+Mn,Mn,Lo,Lo,Lo,Mn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Mn,Mn,Mc,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,
+Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Cn,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Mn,Lo,Mc,Mc,
+Mc,Mn,Mn,Mn,Mn,Mn,Cn,Mn,Mn,Mc,Cn,Mc,Mc,Mn,Cn,Cn,
+Lo,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Mn,Mn,Cn,Cn,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,
+Cn,Sc,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 0B00 - 0BFF ====
+Cn,Mn,Mc,Mc,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Lo,
+Lo,Cn,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Cn,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Mn,Lo,Mc,Mn,
+Mc,Mn,Mn,Mn,Mn,Cn,Cn,Mc,Mc,Cn,Cn,Mc,Mc,Mn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Mn,Mc,Cn,Cn,Cn,Cn,Lo,Lo,Cn,Lo,
+Lo,Lo,Mn,Mn,Cn,Cn,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,
+So,Lo,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Mn,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Lo,Lo,
+Lo,Cn,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Lo,Lo,Cn,Lo,Cn,Lo,Lo,
+Cn,Cn,Cn,Lo,Lo,Cn,Cn,Cn,Lo,Lo,Lo,Cn,Cn,Cn,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Cn,Mc,Mc,
+Mn,Mc,Mc,Cn,Cn,Cn,Mc,Mc,Mc,Cn,Mc,Mc,Mc,Mn,Cn,Cn,
+Lo,Cn,Cn,Cn,Cn,Cn,Cn,Mc,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,
+No,No,No,So,So,So,So,So,So,Sc,So,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 0C00 - 0CFF ====
+Cn,Mc,Mc,Mc,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,
+Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Lo,Mn,Mn,
+Mn,Mc,Mc,Mc,Mc,Cn,Mn,Mn,Mn,Cn,Mn,Mn,Mn,Mn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Mn,Mn,Cn,Lo,Lo,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Mn,Mn,Cn,Cn,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,No,No,No,No,No,No,No,So,
+Cn,Cn,Mc,Mc,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,
+Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Mn,Lo,Mc,Mn,
+Mc,Mc,Mc,Mc,Mc,Cn,Mn,Mc,Mc,Cn,Mc,Mc,Mn,Mn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Mc,Mc,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Lo,Cn,
+Lo,Lo,Mn,Mn,Cn,Cn,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,
+Cn,So,So,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 0D00 - 0DFF ====
+Cn,Cn,Mc,Mc,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,
+Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Lo,Mc,Mc,
+Mc,Mn,Mn,Mn,Mn,Cn,Mc,Mc,Mc,Cn,Mc,Mc,Mc,Mn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Mc,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Mn,Mn,Cn,Cn,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,
+No,No,No,No,No,No,Cn,Cn,Cn,So,Lo,Lo,Lo,Lo,Lo,Lo,
+Cn,Cn,Mc,Mc,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Mn,Cn,Cn,Cn,Cn,Mc,
+Mc,Mc,Mn,Mn,Mn,Cn,Mn,Cn,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Mc,Mc,Po,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 0E00 - 0EFF ====
+Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Mn,Lo,Lo,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Cn,Cn,Cn,Cn,Sc,
+Lo,Lo,Lo,Lo,Lo,Lo,Lm,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Po,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Po,Po,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Lo,Lo,Cn,Lo,Cn,Cn,Lo,Lo,Cn,Lo,Cn,Cn,Lo,Cn,Cn,
+Cn,Cn,Cn,Cn,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Cn,Lo,Lo,Lo,Cn,Lo,Cn,Lo,Cn,Cn,Lo,Lo,Cn,Lo,Lo,Lo,
+Lo,Mn,Lo,Lo,Mn,Mn,Mn,Mn,Mn,Mn,Cn,Mn,Mn,Lo,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Cn,Lm,Cn,Mn,Mn,Mn,Mn,Mn,Mn,Cn,Cn,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Cn,Cn,Lo,Lo,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 0F00 - 0FFF ====
+Lo,So,So,So,Po,Po,Po,Po,Po,Po,Po,Po,Po,Po,Po,Po,
+Po,Po,Po,So,So,So,So,So,Mn,Mn,So,So,So,So,So,So,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,No,No,No,No,No,No,
+No,No,No,No,So,Mn,So,Mn,So,Mn,Ps,Pe,Ps,Pe,Mc,Mc,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,
+Cn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mc,
+Mn,Mn,Mn,Mn,Mn,Po,Mn,Mn,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Cn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Cn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Cn,So,So,
+So,So,So,So,So,So,Mn,So,So,So,So,So,So,Cn,So,So,
+Po,Po,Po,Po,Po,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 1000 - 10FF ====
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Mc,Mc,Mn,Mn,Mn,
+Mn,Mc,Mn,Mn,Mn,Mn,Mn,Mn,Mc,Mn,Mn,Mc,Mc,Mn,Mn,Lo,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Po,Po,Po,Po,Po,Po,
+Lo,Lo,Lo,Lo,Lo,Lo,Mc,Mc,Mn,Mn,Lo,Lo,Lo,Lo,Mn,Mn,
+Mn,Lo,Mc,Mc,Mc,Lo,Lo,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Lo,Lo,
+Lo,Mn,Mn,Mn,Mn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Mn,Mc,Mc,Mn,Mn,Mc,Mc,Mc,Mc,Mc,Mc,Mn,Lo,Mc,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Cn,Cn,Cn,Cn,So,So,
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Lu,Lu,Lu,Lu,Lu,Lu,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Po,Lm,Cn,Cn,Cn,
+==== Charcode-Range 1100 - 11FF ====
+if(0x00<=x&&x<=0x59||0x5F<=x&&x<=0xA2||0xA8<=x&&x<=0xF9)return Lo;
+
+==== Charcode-Range 1200 - 12FF ====
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Cn,Lo,Lo,Lo,Lo,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Cn,Lo,Lo,Lo,Lo,Cn,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,
+Lo,Cn,Lo,Lo,Lo,Lo,Cn,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+==== Charcode-Range 1300 - 13FF ====
+if(0x00<=x&&x<=0x10||0x12<=x&&x<=0x15||0x18<=x&&x<=0x5A||0x80<=x&&x<=0x8F||0xA0<=x&&x<=0xF4)return Lo;
+if(x==0x5F)return Mn;
+if(x==0x60||0x90<=x&&x<=0x99)return So;
+if(0x61<=x&&x<=0x68)return Po;
+if(0x69<=x&&x<=0x7C)return No;
+
+==== Charcode-Range 1400 - 14FF ====
+if(0x01<=x&&x<=0xFF)return Lo;
+
+==== Charcode-Range 1500 - 15FF ====
+if(0x00<=x&&x<=0xFF)return Lo;
+
+==== Charcode-Range 1600 - 16FF ====
+if(0x00<=x&&x<=0x6C||0x6F<=x&&x<=0x76||0x81<=x&&x<=0x9A||0xA0<=x&&x<=0xEA)return Lo;
+if(x==0x6D||x==0x6E||0xEB<=x&&x<=0xED)return Po;
+if(x==0x80)return Zs;
+if(x==0x9B)return Ps;
+if(x==0x9C)return Pe;
+if(0xEE<=x&&x<=0xF0)return Nl;
+
+==== Charcode-Range 1700 - 17FF ====
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,
+Lo,Lo,Mn,Mn,Mn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Mn,Mn,Mn,Po,Po,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Mn,Mn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,
+Lo,Cn,Mn,Mn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Cf,Cf,Mc,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mc,Mc,
+Mc,Mc,Mc,Mc,Mc,Mc,Mn,Mc,Mc,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Po,Po,Po,Lm,Po,Po,Po,Sc,Lo,Mn,Cn,Cn,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Cn,Cn,Cn,Cn,Cn,Cn,
+No,No,No,No,No,No,No,No,No,No,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 1800 - 18FF ====
+if(0x00<=x&&x<=0x05||0x07<=x&&x<=0x0A)return Po;
+if(x==0x06)return Pd;
+if(0x0B<=x&&x<=0x0D||x==0xA9)return Mn;
+if(x==0x0E)return Zs;
+if(0x10<=x&&x<=0x19)return Nd;
+if(0x20<=x&&x<=0x42||0x44<=x&&x<=0x77||0x80<=x&&x<=0xA8||x==0xAA)return Lo;
+if(x==0x43)return Lm;
+
+==== Charcode-Range 1900 - 19FF ====
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,
+Mn,Mn,Mn,Mc,Mc,Mc,Mc,Mn,Mn,Mc,Mc,Mc,Cn,Cn,Cn,Cn,
+Mc,Mc,Mn,Mc,Mc,Mc,Mc,Mc,Mc,Mn,Mn,Mn,Cn,Cn,Cn,Cn,
+So,Cn,Cn,Cn,Po,Po,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Cn,Cn,Cn,
+Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,
+Mc,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Mc,Mc,Cn,Cn,Cn,Cn,Cn,Cn,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Cn,Cn,Cn,Cn,Po,Po,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+==== Charcode-Range 1A00 - 1AFF ====
+if(0x00<=x&&x<=0x16)return Lo;
+if(x==0x17||x==0x18)return Mn;
+if(0x19<=x&&x<=0x1B)return Mc;
+if(x==0x1E||x==0x1F)return Po;
+
+==== Charcode-Range 1B00 - 1BFF ====
+Mn,Mn,Mn,Mn,Mc,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Mn,Mc,Mn,Mn,Mn,Mn,Mn,Mc,Mn,Mc,Mc,Mc,
+Mc,Mc,Mn,Mc,Mc,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Cn,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Po,Po,Po,Po,Po,Po,
+Po,So,So,So,So,So,So,So,So,So,So,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,So,So,So,So,So,So,So,So,So,Cn,Cn,Cn,
+Mn,Mn,Mc,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Mc,Mn,Mn,Mn,Mn,Mc,Mc,Mn,Mn,Mc,Cn,Cn,Cn,Lo,Lo,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 1C00 - 1CFF ====
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mc,Mc,Mn,Mn,Cn,Cn,Cn,Po,Po,Po,Po,Po,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Cn,Cn,Cn,Lo,Lo,Lo,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lm,Lm,Lm,Lm,Lm,Lm,Po,Po,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 1D00 - 1DFF ====
+if(0x00<=x&&x<=0x2B||0x62<=x&&x<=0x77||0x79<=x&&x<=0x9A)return Ll;
+if(0x2C<=x&&x<=0x61||x==0x78||0x9B<=x&&x<=0xBF)return Lm;
+if(0xC0<=x&&x<=0xE6||x==0xFE||x==0xFF)return Mn;
+
+==== Charcode-Range 1E00 - 1EFF ====
+:: if(c%2==0) ::
+if(0x00<=x&&x<=0x94||0x9E<=x&&x<=0xFE)return Lu;
+if(0x96<=x&&x<=0x9C)return Ll;
+
+:: if(c%2==1) ::
+if(0x01<=x&&x<=0xFF)return Ll;
+
+==== Charcode-Range 1F00 - 1FFF ====
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Ll,Ll,Ll,Ll,Ll,Ll,Cn,Cn,Lu,Lu,Lu,Lu,Lu,Lu,Cn,Cn,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Ll,Ll,Ll,Ll,Ll,Ll,Cn,Cn,Lu,Lu,Lu,Lu,Lu,Lu,Cn,Cn,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Cn,Lu,Cn,Lu,Cn,Lu,Cn,Lu,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Cn,Cn,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Lt,Lt,Lt,Lt,Lt,Lt,Lt,Lt,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Lt,Lt,Lt,Lt,Lt,Lt,Lt,Lt,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Lt,Lt,Lt,Lt,Lt,Lt,Lt,Lt,
+Ll,Ll,Ll,Ll,Ll,Cn,Ll,Ll,Lu,Lu,Lu,Lu,Lt,Sk,Ll,Sk,
+Sk,Sk,Ll,Ll,Ll,Cn,Ll,Ll,Lu,Lu,Lu,Lu,Lt,Sk,Sk,Sk,
+Ll,Ll,Ll,Ll,Cn,Cn,Ll,Ll,Lu,Lu,Lu,Lu,Cn,Sk,Sk,Sk,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Lu,Lu,Lu,Lu,Lu,Sk,Sk,Sk,
+Cn,Cn,Ll,Ll,Ll,Cn,Ll,Ll,Lu,Lu,Lu,Lu,Lt,Sk,Sk,Cn,
+==== Charcode-Range 2000 - 20FF ====
+Zs,Zs,Zs,Zs,Zs,Zs,Zs,Zs,Zs,Zs,Zs,Cf,Cf,Cf,Cf,Cf,
+Pd,Pd,Pd,Pd,Pd,Pd,Po,Po,Pi,Pf,Ps,Pi,Pi,Pf,Ps,Pi,
+Po,Po,Po,Po,Po,Po,Po,Po,Zl,Zp,Cf,Cf,Cf,Cf,Cf,Zs,
+Po,Po,Po,Po,Po,Po,Po,Po,Po,Pi,Pf,Po,Po,Po,Po,Pc,
+Pc,Po,Po,Po,Sm,Ps,Pe,Po,Po,Po,Po,Po,Po,Po,Po,Po,
+Po,Po,Sm,Po,Pc,Po,Po,Po,Po,Po,Po,Po,Po,Po,Po,Zs,
+Cf,Cf,Cf,Cf,Cf,Cn,Cn,Cn,Cn,Cn,Cf,Cf,Cf,Cf,Cf,Cf,
+No,Ll,Cn,Cn,No,No,No,No,No,No,Sm,Sm,Sm,Ps,Pe,Ll,
+No,No,No,No,No,No,No,No,No,No,Sm,Sm,Sm,Ps,Pe,Cn,
+Lm,Lm,Lm,Lm,Lm,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Sc,Sc,Sc,Sc,Sc,Sc,Sc,Sc,Sc,Sc,Sc,Sc,Sc,Sc,Sc,Sc,
+Sc,Sc,Sc,Sc,Sc,Sc,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Me,Me,Me,
+Me,Mn,Me,Me,Me,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 2100 - 21FF ====
+So,So,Lu,So,So,So,So,Lu,So,So,Ll,Lu,Lu,Lu,Ll,Ll,
+Lu,Lu,Lu,Ll,So,Lu,So,So,So,Lu,Lu,Lu,Lu,Lu,So,So,
+So,So,So,So,Lu,So,Lu,So,Lu,So,Lu,Lu,Lu,Lu,So,Ll,
+Lu,Lu,Lu,Lu,Ll,Lo,Lo,Lo,Lo,Ll,So,So,Ll,Ll,Lu,Lu,
+Sm,Sm,Sm,Sm,Sm,Lu,Ll,Ll,Ll,Ll,So,Sm,So,So,Ll,So,
+Cn,Cn,Cn,No,No,No,No,No,No,No,No,No,No,No,No,No,
+Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,
+Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,
+Nl,Nl,Nl,Lu,Ll,Nl,Nl,Nl,Nl,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Sm,Sm,Sm,Sm,Sm,So,So,So,So,So,Sm,Sm,So,So,So,So,
+Sm,So,So,Sm,So,So,Sm,So,So,So,So,So,So,So,Sm,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,Sm,Sm,
+So,So,Sm,So,Sm,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+==== Charcode-Range 2200 - 22FF ====
+if(0x00<=x&&x<=0xFF)return Sm;
+
+==== Charcode-Range 2300 - 23FF ====
+So,So,So,So,So,So,So,So,Sm,Sm,Sm,Sm,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+Sm,Sm,So,So,So,So,So,So,So,Ps,Pe,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,Sm,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,Sm,Sm,Sm,Sm,
+Sm,Sm,So,So,So,So,So,So,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 2400 - 24FF ====
+if(0x00<=x&&x<=0x26||0x40<=x&&x<=0x4A||0x9C<=x&&x<=0xE9)return So;
+if(0x60<=x&&x<=0x9B||0xEA<=x&&x<=0xFF)return No;
+
+==== Charcode-Range 2500 - 25FF ====
+if(0x00<=x&&x<=0xB6||0xB8<=x&&x<=0xC0||0xC2<=x&&x<=0xF7)return So;
+if(x==0xB7||x==0xC1||0xF8<=x&&x<=0xFF)return Sm;
+
+==== Charcode-Range 2600 - 26FF ====
+if(0x00<=x&&x<=0x6E||0x70<=x&&x<=0x9D||0xA0<=x&&x<=0xBC||0xC0<=x&&x<=0xC3)return So;
+if(x==0x6F)return Sm;
+
+==== Charcode-Range 2700 - 27FF ====
+Cn,So,So,So,So,Cn,So,So,So,So,Cn,Cn,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,Cn,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,Cn,So,Cn,So,
+So,So,So,Cn,Cn,Cn,So,Cn,So,So,So,So,So,So,So,Cn,
+Cn,So,So,So,So,So,So,So,Ps,Pe,Ps,Pe,Ps,Pe,Ps,Pe,
+Ps,Pe,Ps,Pe,Ps,Pe,No,No,No,No,No,No,No,No,No,No,
+No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,
+No,No,No,No,So,Cn,Cn,Cn,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+Cn,So,So,So,So,So,So,So,So,So,So,So,So,So,So,Cn,
+Sm,Sm,Sm,Sm,Sm,Ps,Pe,Sm,Sm,Sm,Sm,Cn,Sm,Cn,Cn,Cn,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Ps,Pe,Ps,Pe,Ps,Pe,Ps,Pe,Ps,Pe,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+==== Charcode-Range 2800 - 28FF ====
+if(0x00<=x&&x<=0xFF)return So;
+
+==== Charcode-Range 2900 - 29FF ====
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Ps,Pe,Ps,Pe,Ps,Pe,Ps,Pe,Ps,Pe,Ps,Pe,Ps,
+Pe,Ps,Pe,Ps,Pe,Ps,Pe,Ps,Pe,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Ps,Pe,Ps,Pe,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,
+Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Sm,Ps,Pe,Sm,Sm,
+==== Charcode-Range 2A00 - 2AFF ====
+if(0x00<=x&&x<=0xFF)return Sm;
+
+==== Charcode-Range 2B00 - 2BFF ====
+if(0x00<=x&&x<=0x2F||x==0x45||x==0x46||0x50<=x&&x<=0x54)return So;
+if(0x30<=x&&x<=0x44||0x47<=x&&x<=0x4C)return Sm;
+
+==== Charcode-Range 2C00 - 2CFF ====
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Cn,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Cn,
+Lu,Ll,Lu,Lu,Lu,Ll,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Lu,Lu,
+Cn,Ll,Lu,Ll,Ll,Lu,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Lm,Cn,Cn,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Ll,So,So,So,So,So,So,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Po,Po,Po,Po,No,Po,Po,
+==== Charcode-Range 2D00 - 2DFF ====
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Lm,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+==== Charcode-Range 2E00 - 2EFF ====
+Po,Po,Pi,Pf,Pi,Pf,Po,Po,Po,Pi,Pf,Po,Pi,Pf,Po,Po,
+Po,Po,Po,Po,Po,Po,Po,Pd,Po,Po,Pd,Po,Pi,Pf,Po,Po,
+Pi,Pf,Ps,Pe,Ps,Pe,Ps,Pe,Ps,Pe,Po,Po,Po,Po,Po,Lm,
+Po,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,Cn,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,So,
+So,So,So,So,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range 2F00 - 2FFF ====
+if(0x00<=x&&x<=0xD5||0xF0<=x&&x<=0xFB)return So;
+
+==== Charcode-Range 3000 - 30FF ====
+Zs,Po,Po,Po,So,Lm,Lo,Nl,Ps,Pe,Ps,Pe,Ps,Pe,Ps,Pe,
+Ps,Pe,So,So,Ps,Pe,Ps,Pe,Ps,Pe,Ps,Pe,Pd,Ps,Pe,Pe,
+So,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Nl,Mn,Mn,Mn,Mn,Mn,Mn,
+Pd,Lm,Lm,Lm,Lm,Lm,So,So,Nl,Nl,Nl,Lm,Lo,Po,So,So,
+Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Mn,Mn,Sk,Sk,Lm,Lm,Lo,
+Pd,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Po,Lm,Lm,Lm,Lo,
+==== Charcode-Range 3100 - 31FF ====
+if(0x05<=x&&x<=0x2D||0x31<=x&&x<=0x8E||0xA0<=x&&x<=0xB7||0xF0<=x&&x<=0xFF)return Lo;
+if(x==0x90||x==0x91||0x96<=x&&x<=0x9F||0xC0<=x&&x<=0xE3)return So;
+if(0x92<=x&&x<=0x95)return No;
+
+==== Charcode-Range 3200 - 32FF ====
+if(0x00<=x&&x<=0x1E||0x2A<=x&&x<=0x43||x==0x50||0x60<=x&&x<=0x7F||0x8A<=x&&x<=0xB0||0xC0<=x&&x<=0xFE)return So;
+if(0x20<=x&&x<=0x29||0x51<=x&&x<=0x5F||0x80<=x&&x<=0x89||0xB1<=x&&x<=0xBF)return No;
+
+==== Charcode-Range 3300 - 33FF ====
+if(0x00<=x&&x<=0xFF)return So;
+
+==== Charcode-Range 3400 - 34FF ====
+if(x==0x00)return Lo;
+
+==== Charcode-Range 3500 - 35FF ====
+
+==== Charcode-Range 3600 - 36FF ====
+
+==== Charcode-Range 3700 - 37FF ====
+
+==== Charcode-Range 3800 - 38FF ====
+
+==== Charcode-Range 3900 - 39FF ====
+
+==== Charcode-Range 3A00 - 3AFF ====
+
+==== Charcode-Range 3B00 - 3BFF ====
+
+==== Charcode-Range 3C00 - 3CFF ====
+
+==== Charcode-Range 3D00 - 3DFF ====
+
+==== Charcode-Range 3E00 - 3EFF ====
+
+==== Charcode-Range 3F00 - 3FFF ====
+
+==== Charcode-Range 4000 - 40FF ====
+
+==== Charcode-Range 4100 - 41FF ====
+
+==== Charcode-Range 4200 - 42FF ====
+
+==== Charcode-Range 4300 - 43FF ====
+
+==== Charcode-Range 4400 - 44FF ====
+
+==== Charcode-Range 4500 - 45FF ====
+
+==== Charcode-Range 4600 - 46FF ====
+
+==== Charcode-Range 4700 - 47FF ====
+
+==== Charcode-Range 4800 - 48FF ====
+
+==== Charcode-Range 4900 - 49FF ====
+
+==== Charcode-Range 4A00 - 4AFF ====
+
+==== Charcode-Range 4B00 - 4BFF ====
+
+==== Charcode-Range 4C00 - 4CFF ====
+
+==== Charcode-Range 4D00 - 4DFF ====
+if(x==0xB5)return Lo;
+if(0xC0<=x&&x<=0xFF)return So;
+
+==== Charcode-Range 4E00 - 4EFF ====
+if(x==0x00)return Lo;
+
+==== Charcode-Range 4F00 - 4FFF ====
+
+==== Charcode-Range 5000 - 50FF ====
+
+==== Charcode-Range 5100 - 51FF ====
+
+==== Charcode-Range 5200 - 52FF ====
+
+==== Charcode-Range 5300 - 53FF ====
+
+==== Charcode-Range 5400 - 54FF ====
+
+==== Charcode-Range 5500 - 55FF ====
+
+==== Charcode-Range 5600 - 56FF ====
+
+==== Charcode-Range 5700 - 57FF ====
+
+==== Charcode-Range 5800 - 58FF ====
+
+==== Charcode-Range 5900 - 59FF ====
+
+==== Charcode-Range 5A00 - 5AFF ====
+
+==== Charcode-Range 5B00 - 5BFF ====
+
+==== Charcode-Range 5C00 - 5CFF ====
+
+==== Charcode-Range 5D00 - 5DFF ====
+
+==== Charcode-Range 5E00 - 5EFF ====
+
+==== Charcode-Range 5F00 - 5FFF ====
+
+==== Charcode-Range 6000 - 60FF ====
+
+==== Charcode-Range 6100 - 61FF ====
+
+==== Charcode-Range 6200 - 62FF ====
+
+==== Charcode-Range 6300 - 63FF ====
+
+==== Charcode-Range 6400 - 64FF ====
+
+==== Charcode-Range 6500 - 65FF ====
+
+==== Charcode-Range 6600 - 66FF ====
+
+==== Charcode-Range 6700 - 67FF ====
+
+==== Charcode-Range 6800 - 68FF ====
+
+==== Charcode-Range 6900 - 69FF ====
+
+==== Charcode-Range 6A00 - 6AFF ====
+
+==== Charcode-Range 6B00 - 6BFF ====
+
+==== Charcode-Range 6C00 - 6CFF ====
+
+==== Charcode-Range 6D00 - 6DFF ====
+
+==== Charcode-Range 6E00 - 6EFF ====
+
+==== Charcode-Range 6F00 - 6FFF ====
+
+==== Charcode-Range 7000 - 70FF ====
+
+==== Charcode-Range 7100 - 71FF ====
+
+==== Charcode-Range 7200 - 72FF ====
+
+==== Charcode-Range 7300 - 73FF ====
+
+==== Charcode-Range 7400 - 74FF ====
+
+==== Charcode-Range 7500 - 75FF ====
+
+==== Charcode-Range 7600 - 76FF ====
+
+==== Charcode-Range 7700 - 77FF ====
+
+==== Charcode-Range 7800 - 78FF ====
+
+==== Charcode-Range 7900 - 79FF ====
+
+==== Charcode-Range 7A00 - 7AFF ====
+
+==== Charcode-Range 7B00 - 7BFF ====
+
+==== Charcode-Range 7C00 - 7CFF ====
+
+==== Charcode-Range 7D00 - 7DFF ====
+
+==== Charcode-Range 7E00 - 7EFF ====
+
+==== Charcode-Range 7F00 - 7FFF ====
+
+==== Charcode-Range 8000 - 80FF ====
+
+==== Charcode-Range 8100 - 81FF ====
+
+==== Charcode-Range 8200 - 82FF ====
+
+==== Charcode-Range 8300 - 83FF ====
+
+==== Charcode-Range 8400 - 84FF ====
+
+==== Charcode-Range 8500 - 85FF ====
+
+==== Charcode-Range 8600 - 86FF ====
+
+==== Charcode-Range 8700 - 87FF ====
+
+==== Charcode-Range 8800 - 88FF ====
+
+==== Charcode-Range 8900 - 89FF ====
+
+==== Charcode-Range 8A00 - 8AFF ====
+
+==== Charcode-Range 8B00 - 8BFF ====
+
+==== Charcode-Range 8C00 - 8CFF ====
+
+==== Charcode-Range 8D00 - 8DFF ====
+
+==== Charcode-Range 8E00 - 8EFF ====
+
+==== Charcode-Range 8F00 - 8FFF ====
+
+==== Charcode-Range 9000 - 90FF ====
+
+==== Charcode-Range 9100 - 91FF ====
+
+==== Charcode-Range 9200 - 92FF ====
+
+==== Charcode-Range 9300 - 93FF ====
+
+==== Charcode-Range 9400 - 94FF ====
+
+==== Charcode-Range 9500 - 95FF ====
+
+==== Charcode-Range 9600 - 96FF ====
+
+==== Charcode-Range 9700 - 97FF ====
+
+==== Charcode-Range 9800 - 98FF ====
+
+==== Charcode-Range 9900 - 99FF ====
+
+==== Charcode-Range 9A00 - 9AFF ====
+
+==== Charcode-Range 9B00 - 9BFF ====
+
+==== Charcode-Range 9C00 - 9CFF ====
+
+==== Charcode-Range 9D00 - 9DFF ====
+
+==== Charcode-Range 9E00 - 9EFF ====
+
+==== Charcode-Range 9F00 - 9FFF ====
+if(x==0xC3)return Lo;
+
+==== Charcode-Range A000 - A0FF ====
+if(0x00<=x&&x<=0x14||0x16<=x&&x<=0xFF)return Lo;
+if(x==0x15)return Lm;
+
+==== Charcode-Range A100 - A1FF ====
+if(0x00<=x&&x<=0xFF)return Lo;
+
+==== Charcode-Range A200 - A2FF ====
+if(0x00<=x&&x<=0xFF)return Lo;
+
+==== Charcode-Range A300 - A3FF ====
+if(0x00<=x&&x<=0xFF)return Lo;
+
+==== Charcode-Range A400 - A4FF ====
+if(0x00<=x&&x<=0x8C)return Lo;
+if(0x90<=x&&x<=0xC6)return So;
+
+==== Charcode-Range A500 - A5FF ====
+if(0x00<=x&&x<=0xFF)return Lo;
+
+==== Charcode-Range A600 - A6FF ====
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lm,Po,Po,Po,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Lo,Lo,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Cn,Cn,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lo,Mn,
+Me,Me,Me,Po,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Mn,Mn,Po,Lm,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range A700 - A7FF ====
+Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,Sk,
+Sk,Sk,Sk,Sk,Sk,Sk,Sk,Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,Lm,
+Sk,Sk,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Ll,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,
+Lm,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Lu,Ll,Lu,Ll,Lu,Lu,Ll,
+Lu,Ll,Lu,Ll,Lu,Ll,Lu,Ll,Lm,Sk,Sk,Lu,Ll,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Lo,Lo,Lo,Lo,Lo,
+==== Charcode-Range A800 - A8FF ====
+Lo,Lo,Mn,Lo,Lo,Lo,Mn,Lo,Lo,Lo,Lo,Mn,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Mc,Mc,Mn,Mn,Mc,So,So,So,So,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Po,Po,Po,Po,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Mc,Mc,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,Mc,
+Mc,Mc,Mc,Mc,Mn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Po,Po,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range A900 - A9FF ====
+if(0x00<=x&&x<=0x09)return Nd;
+if(0x0A<=x&&x<=0x25||0x30<=x&&x<=0x46)return Lo;
+if(0x26<=x&&x<=0x2D||0x47<=x&&x<=0x51)return Mn;
+if(x==0x2E||x==0x2F||x==0x5F)return Po;
+if(x==0x52||x==0x53)return Mc;
+
+==== Charcode-Range AA00 - AAFF ====
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Mn,Mn,Mn,Mn,Mn,Mn,Mc,
+Mc,Mn,Mn,Mc,Mc,Mn,Mn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Mn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Mn,Mc,Cn,Cn,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Cn,Cn,Po,Po,Po,Po,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+==== Charcode-Range AB00 - ABFF ====
+
+==== Charcode-Range AC00 - ACFF ====
+if(x==0x00)return Lo;
+
+==== Charcode-Range AD00 - ADFF ====
+
+==== Charcode-Range AE00 - AEFF ====
+
+==== Charcode-Range AF00 - AFFF ====
+
+==== Charcode-Range B000 - B0FF ====
+
+==== Charcode-Range B100 - B1FF ====
+
+==== Charcode-Range B200 - B2FF ====
+
+==== Charcode-Range B300 - B3FF ====
+
+==== Charcode-Range B400 - B4FF ====
+
+==== Charcode-Range B500 - B5FF ====
+
+==== Charcode-Range B600 - B6FF ====
+
+==== Charcode-Range B700 - B7FF ====
+
+==== Charcode-Range B800 - B8FF ====
+
+==== Charcode-Range B900 - B9FF ====
+
+==== Charcode-Range BA00 - BAFF ====
+
+==== Charcode-Range BB00 - BBFF ====
+
+==== Charcode-Range BC00 - BCFF ====
+
+==== Charcode-Range BD00 - BDFF ====
+
+==== Charcode-Range BE00 - BEFF ====
+
+==== Charcode-Range BF00 - BFFF ====
+
+==== Charcode-Range C000 - C0FF ====
+
+==== Charcode-Range C100 - C1FF ====
+
+==== Charcode-Range C200 - C2FF ====
+
+==== Charcode-Range C300 - C3FF ====
+
+==== Charcode-Range C400 - C4FF ====
+
+==== Charcode-Range C500 - C5FF ====
+
+==== Charcode-Range C600 - C6FF ====
+
+==== Charcode-Range C700 - C7FF ====
+
+==== Charcode-Range C800 - C8FF ====
+
+==== Charcode-Range C900 - C9FF ====
+
+==== Charcode-Range CA00 - CAFF ====
+
+==== Charcode-Range CB00 - CBFF ====
+
+==== Charcode-Range CC00 - CCFF ====
+
+==== Charcode-Range CD00 - CDFF ====
+
+==== Charcode-Range CE00 - CEFF ====
+
+==== Charcode-Range CF00 - CFFF ====
+
+==== Charcode-Range D000 - D0FF ====
+
+==== Charcode-Range D100 - D1FF ====
+
+==== Charcode-Range D200 - D2FF ====
+
+==== Charcode-Range D300 - D3FF ====
+
+==== Charcode-Range D400 - D4FF ====
+
+==== Charcode-Range D500 - D5FF ====
+
+==== Charcode-Range D600 - D6FF ====
+
+==== Charcode-Range D700 - D7FF ====
+if(x==0xA3)return Lo;
+
+==== Charcode-Range D800 - D8FF ====
+if(x==0x00)return Cs;
+
+==== Charcode-Range D900 - D9FF ====
+
+==== Charcode-Range DA00 - DAFF ====
+
+==== Charcode-Range DB00 - DBFF ====
+if(x==0x7F||x==0x80||x==0xFF)return Cs;
+
+==== Charcode-Range DC00 - DCFF ====
+if(x==0x00)return Cs;
+
+==== Charcode-Range DD00 - DDFF ====
+
+==== Charcode-Range DE00 - DEFF ====
+
+==== Charcode-Range DF00 - DFFF ====
+if(x==0xFF)return Cs;
+
+==== Charcode-Range E000 - E0FF ====
+if(x==0x00)return Co;
+
+==== Charcode-Range E100 - E1FF ====
+
+==== Charcode-Range E200 - E2FF ====
+
+==== Charcode-Range E300 - E3FF ====
+
+==== Charcode-Range E400 - E4FF ====
+
+==== Charcode-Range E500 - E5FF ====
+
+==== Charcode-Range E600 - E6FF ====
+
+==== Charcode-Range E700 - E7FF ====
+
+==== Charcode-Range E800 - E8FF ====
+
+==== Charcode-Range E900 - E9FF ====
+
+==== Charcode-Range EA00 - EAFF ====
+
+==== Charcode-Range EB00 - EBFF ====
+
+==== Charcode-Range EC00 - ECFF ====
+
+==== Charcode-Range ED00 - EDFF ====
+
+==== Charcode-Range EE00 - EEFF ====
+
+==== Charcode-Range EF00 - EFFF ====
+
+==== Charcode-Range F000 - F0FF ====
+
+==== Charcode-Range F100 - F1FF ====
+
+==== Charcode-Range F200 - F2FF ====
+
+==== Charcode-Range F300 - F3FF ====
+
+==== Charcode-Range F400 - F4FF ====
+
+==== Charcode-Range F500 - F5FF ====
+
+==== Charcode-Range F600 - F6FF ====
+
+==== Charcode-Range F700 - F7FF ====
+
+==== Charcode-Range F800 - F8FF ====
+if(x==0xFF)return Co;
+
+==== Charcode-Range F900 - F9FF ====
+if(0x00<=x&&x<=0xFF)return Lo;
+
+==== Charcode-Range FA00 - FAFF ====
+if(0x00<=x&&x<=0x2D||0x30<=x&&x<=0x6A||0x70<=x&&x<=0xD9)return Lo;
+
+==== Charcode-Range FB00 - FBFF ====
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Ll,Ll,Ll,Ll,Ll,Cn,Cn,Cn,Cn,Cn,Lo,Mn,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Sm,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Cn,Lo,Cn,
+Lo,Lo,Cn,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Cn,Cn,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+==== Charcode-Range FC00 - FCFF ====
+if(0x00<=x&&x<=0xFF)return Lo;
+
+==== Charcode-Range FD00 - FDFF ====
+if(0x00<=x&&x<=0x3D||0x50<=x&&x<=0x8F||0x92<=x&&x<=0xC7||0xF0<=x&&x<=0xFB)return Lo;
+if(x==0x3E)return Ps;
+if(x==0x3F)return Pe;
+if(x==0xFC)return Sc;
+if(x==0xFD)return So;
+
+==== Charcode-Range FE00 - FEFF ====
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,Mn,
+Po,Po,Po,Po,Po,Po,Po,Ps,Pe,Po,Cn,Cn,Cn,Cn,Cn,Cn,
+Mn,Mn,Mn,Mn,Mn,Mn,Mn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,
+Po,Pd,Pd,Pc,Pc,Ps,Pe,Ps,Pe,Ps,Pe,Ps,Pe,Ps,Pe,Ps,
+Pe,Ps,Pe,Ps,Pe,Po,Po,Ps,Pe,Po,Po,Po,Po,Pc,Pc,Pc,
+Po,Po,Po,Cn,Po,Po,Po,Po,Pd,Ps,Pe,Ps,Pe,Ps,Pe,Po,
+Po,Po,Sm,Pd,Sm,Sm,Sm,Cn,Po,Sc,Po,Po,Cn,Cn,Cn,Cn,
+Lo,Lo,Lo,Lo,Lo,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Cf,
+==== Charcode-Range FF00 - FFFF ====
+Cn,Po,Po,Po,Sc,Po,Po,Po,Ps,Pe,Po,Sm,Po,Pd,Po,Po,
+Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Nd,Po,Po,Sm,Sm,Sm,Po,
+Po,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,
+Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Lu,Ps,Po,Pe,Sk,Pc,
+Sk,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,
+Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ll,Ps,Sm,Pe,Sm,Ps,
+Pe,Po,Ps,Pe,Po,Po,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lm,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lm,Lm,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,
+Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Lo,Cn,
+Cn,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Lo,Lo,Lo,Lo,Lo,Lo,
+Cn,Cn,Lo,Lo,Lo,Lo,Lo,Lo,Cn,Cn,Lo,Lo,Lo,Cn,Cn,Cn,
+Sc,Sc,Sm,Sk,So,Sc,Sc,Cn,So,Sm,Sm,Sm,Sm,So,So,Cn,
+Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cn,Cf,Cf,Cf,So,So,Cn,Cn,

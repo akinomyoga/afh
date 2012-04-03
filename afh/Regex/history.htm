@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<title>afh.RegularExpressions 開発記録</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<link rel="stylesheet" type="text/css" charset="utf-8" href="file://C:/Documents and Settings/koichi/デスクトップ/Script/mwg2/mwg.std.css" />
+<style type="text/css">
+h1{font-family:"Times New Roman","MS PMincho"}
+pre.cs{background-color:#f8fff8;padding:1ex;border:1px solid silver;}
+hr{height:1px;}
+</style>
+</head>
+<body>
+<h1>afh.RegularExpressions 開発記録</h1>
+<!--=================================================================-->
+<h2>Regular Expressions について</h2>
+<h3>Result は必要なのか?</h3>
+<p>今の所 Result が提供する情報は、それぞれの要素がマッチした位置及び、マッチしたノードの木構造である。</p>
+<ul>
+<li>マッチした位置については Status に List でも用意して線形に蓄積していけば問題ない。</li>
+<li>ノードの木構造に関しては、List に蓄積したのを後で参照すれば大体分かる。
+	<p>唯問題なのは零幅アサーションについての物である。
+	例えば、(?=(123)45)12(345)6 と為っていた場合に、
+	123 や 345 が零幅アサーションの段階でマッチしたのかそれとも実際の有効幅の段階でマッチしたのかの情報が失われてしまうのである。</p>
+	<p>→実は、リストに積まれた順番を見れば分かるのではないか? 更に言えば、リストに積まれた順番を利用して木構造を再構成する事が可能である。</p>
+	<div class="note">
+		<p>則ち、スタックにリストの内容を順番に積んでいく事を考える。或る要素 A を積む時には、</p>
+		<ol>
+		<li>スタックが空の時はそのまま上に積む。</li>
+		<li>while( スタックの一番上に A の読み取り範囲 X に含まれている要素 S が在る )
+			<p>スタックから S を取り除き、S を A の最初の子要素として挿入する</p>
+		</li>
+		<li>A をスタックの一番上に追加する。</li>
+		</ol>
+		<p class="resume">とすれば良い。</p>
+		<p>※零幅アサーションについては、</p>
+		<ol style="list-style-type:lower-alpha;">
+		<li>零幅アサーションの読み取り範囲は (s,e)</li>
+		<li>零幅アサーション自体の位置は (s,s)</li>
+		</ol>
+		<p class="resume">である。(<strong>a. と b. の両者を区別する必要がある。</strong>)</p>
+	</div>
+	<p>但しこの方法によると、零幅の物に関しては、 「読み取り範囲 X に含まれているか否か」の判定が微妙である。
+	いっその事、読み取り開始時にマーカーか何かをリストに追加してしまっても良い。
+	開始マーカーと読み取り完了マーカーの間にある要素が、その要素の子要素となる事は明らかである。
+	或いは、読み取り開始時の List の要素数を記録しておいてそれ以降の物は自分の子要素とする方法もある。</p>
+</li>
+</ul>
+<h4>書き換え</h4>
+<p>実際に、Result に依存しない形に変更を試みる。
+今迄 Result が果たしてきた役割は、代わりに List が果たす事となる。
+(簡単の為 Generics.List を使用するが、将来的にはもっと適したコレクションを自分で定義すると良い。)
+</p>
+<ol>
+<li>Status に List 型のメンバを追加する。</li>
+<li>ITester::Read の書き換え
+	<ul>
+	<li>ITester::Read: 一番初めに capt=new CaptureBase(s,this.parent); 等を実行しているか?</li>
+	<li>ITester::Read: return する前に s.Success 値を設定しているか? (capt.Fail or capt.Complete でも可)</li>
+	<li>ITester ITester::test や bool ITester::success や List&lt;IResult&gt; ITester::res_ch 等のメンバを削除しているか?</li>
+	<li>ITester::Clone: 
+		<ul>
+		<li>ICapture ITester::capt や int ITester::imatch等のメンバをコピーしているか?</li>
+		<li>コンストラクタが parent を要求している場合に、this ではなく this.parent を渡しているか?</li>
+		</ul>
+	</li>
+	<li>単純な構成体に対しては、ICapture インスタンスは生成しない。</li>
+	</ul>
+</li>
+</ol>
+<h4>bool ITester::success;</h4>
+<p>更に、その回の読み取りが成功したかどうかという情報を現在は ITester インスタンス自身が保持していてそれを親インスタンスが参照するという形を取っている。
+が、読み取りが終了すれば即座にこの情報は不要になってしまうので ITester 毎にこれを保持する必要はない。
+寧ろ、Status に其れ専用のプロパティを設ければ済む話である。</p>
+<h4>ITester を Clone する必要はあるのか?</h4>
+<p>Clone を実行するのは何れにしても、その Tester による test が成功した場合である。
+則ち、その Tester はもう使用されないという事であって、わざわざ Clone を行わなくても変な事は起こらない筈である。
+従って、Clone をする必要性という物は見当たらない…(本当に安全かどうかは分からないが)</p>
+<p>→実際に Clone 抜きでやってみたら例外が発生した。</p>
+<p><del>良く考えてみたら、その Tester の Read が成功したとしても、
+Read を複数回行う可能性のある Tester では以降の操作で状態が変わる可能性があるので Clone する必要がある。
+(逆に言えば、状態が変わる可能性のない Tester は自分自身を帰しても良いという事になる。)</del></p>
+<p>→試しに RepeatNode.Tester.Clone で return this して見たがエラーは発生しなかった。
+エラーが発生していたのは、その親ノードの SequenceNode であった。</p>
+<p>則ち、自分自身の Indefinite 性によって Clone される場合には、
+自分自身の test が成功した場合であるから自分の状態がこれ以上変わる可能性はない。
+然し乍ら、子ノードの Indefinte 性によって Clone された場合には、
+自分自身の test の最中であるから自分自身の状態は後で変化し得るという事になる。</p>
+<p>結論としては、<strong>Clone を実装する必要は自分自身の Indefinte 性には関係なく、
+子ノードで Indefinite な物が出現する (≒子ノードを持つ) 場合に生ずる</strong>という事である。</p>
+<p>→Clone の際は一番上の要素に関しては Clone を実行しない設計にした。</p>
+<h4>NextPossibility</h4>
+<p>使用されていないので単純に削除。</p>
+
+<h3>高速化の色々</h3>
+<ol>
+<li>Captures リストを自分で実装してみる。
+	<p>Captures で RemoveRange するのは遅いのではないか?
+	更に Generics.List は様々な使用法に対して堅牢である様に色々なチェック機構が入っている。
+	と言う事で、自分で適当に書いてみる事にした。</p>
+	<p>実際に適当に書いて試してみた所、微妙に遅くなった様である。</p>
+	<p>GC 関連で変にインスタンスの寿命を延ばしているのかも知れないと思い、
+	使わなくなった部分に null 値を書き込むなどの工夫もしてみたりしたが余計に遅くなる様なので諦める。</p>
+	<p>一方で、一致した後の結果を保持する為に Generics.List から Generics.List にコピーを行っていたが、
+	これを Genrics.List から 配列にコピーする様にしたら 1% 程度高速化した。
+	(配列にした事で、結果の評価のアクセスが全部早くなりそうな物だが、余り高速化していない。
+	まあ、Genericds.List 自体が System.Array を保持しているのだから当然といえば当然なのかも知れない。)</p>
+</li>
+<li>無駄なキャプチャを無くす
+	<p>キャプチャを指定されていなくても、ノードの構造を保持するとか言う名の下に、
+	RepeatNode やら SequenceNode で無駄にキャプチャを行っていたがこれを無くす事にした。
+	</p>
+	<p>結果 10% 以上も高速化した。意外である。
+	キャプチャは全体の作業の内のほんの一部なのに一割も影響を与えていたという事になる。</p>
+	<div class="note">
+		<p>現時点での速さは大体…</p>
+		<ul>
+		<li>表現: (?&lt;l>\d+)(?&lt;o>(?:\+|\-))(?&lt;r>\d+)</li>
+		<li>対象: 3+2+4+5 1+2+3 2+3 4+7 123+321</li>
+		</ul>
+		<table class="normal">
+		<tr><td>モード</td><td>afh.RegularExpressions</td><td>System.Text.RegularExpressions</td></tr>
+		<tr><td>Debug with Debugger</td><td>123μs</td><td>25μs</td></tr>
+		<tr><td>Release with Debugger</td><td>100μs</td><td>25μs</td></tr>
+		<tr><td>Release</td><td>72μs</td><td>25μs</td></tr>
+		</table>
+	</div>
+</li>
+<li>文字クラス判定の最適化
+	<p>文字クラスによる判定は、デリゲート呼び出しなどに頼っており可成り非効率的ではないかと思われていた。
+	然し、実際に試してみた所、OrNode+CharEqualsNode と比べて早く動作してしまった。
+	(それだけ、INode-ITester による方法が非効率的だという事だろうか…?)</p>
+	<p>ここで、インターフェイスか継承で、仮想関数を使用した方法でも実装してみて、
+	もっと速度が上がるかどうかについて試してみる。
+	実際に書き換えて試してみた結果、余り速度は変わらない様子である。
+	まあ、こちらの方がコードが見やすいのでインターフェイスの方を採用する事にする。</p>
+	<p>更に、ソースがごちゃごちゃして来たという事で、文字クラスに関連するコードを全て別のクラスに纏め直した所、
+	微妙に遅くなってしまった様である。(何故だろう…最適化が働きにくいのかも知れない。)</p>
+	<p>取り敢えず、System.Reflection.Emit によってコンパイルが出来る様にして見た。
+	然し、速度は依然として殆ど変わらない様に見える…。というか…寧ろ遅くなっているかも知れない。
+	コンパイルしないで使う方も残してあるが、駄目ならそちらを使用する様に切り替えるから良いのであるが。</p>
+</li>
+<li>決定性の部分の最適化
+	<p>決定的な動作の時にもスタックに物を積んだり等、非効率的な動作を行っているので、
+	決定的な動作の時と非決定的な動作の時で、それぞれ異なる関数を用意する事にした。</p>
+	<p>→色々書き換えて、結構面倒であったが無事に終了した。(バグを何処かに落としている可能性はあるが。
+	その結果、速さは 20% 程度向上した。(Release デバグ無しで、65μs→51μs)</p>
+	<div class="note">
+		<p>現時点での速さは大体…</p>
+		<ul>
+		<li>表現: (?&lt;l>\d+)(?&lt;o>[\+\-])(?&lt;r>\d+)</li>
+		<li>対象: 3+2+4+5 1+2+3 2+3 4+7 123+321</li>
+		</ul>
+		<table class="normal">
+		<tr><td>モード</td><td>afh.RegularExpressions</td><td>System.Text.RegularExpressions</td></tr>
+		<tr><td>Debug with Debugger</td><td>89μs</td><td>25μs</td></tr>
+		<tr><td>Release with Debugger</td><td>69μs</td><td>25μs</td></tr>
+		<tr><td>Release</td><td>51μs</td><td>25μs</td></tr>
+		</table>
+	</div>
+</li>
+</ol>
+<h3>細々した修正の色々</h3>
+<h4>予定</h4>
+<table class="normal">
+<tr><th>完了</th><th>概要</th></tr>
+<tr><td>未</td><td>CharElemNode::ToString() にて、「場合に依って」 0-9 の数字に \ が必要になると言う事。</td></tr>
+<tr><td>未</td><td>空一致繰り返しの回避</td></tr>
+</table>
+<h4>バグ</h4>
+<table class="normal">
+<tr><th>対処</th><th>概要</th></tr>
+<tr><td>○</td><td>CharElemNode::ToString() にて、\ を付けるべき特別な文字に \ がついていない事。</td></tr>
+<tr><td>○</td><td>\P の ToString で \p と表示されてしまう。
+	<p>→UnicodeBlockNode::.ctor 及び CLangCType::.ctor を修正。</p>
+</td></tr>
+</table>
+<h3>INode 実装の手引き</h3>
+<p>INode / ITester を実装する上での注意点が沢山あるので此処に纏めておく。</p>
+<h4>INode::Nondeterministic</h4>
+<p>このプロパティは、一致判定の際に「非決定性」を生じないという事かどうかを取得するのに用いられる。</p>
+<ul>
+<li>一度 INode インスタンスを作成したら、その後にこのプロパティの値が変わっては行けない。</li>
+<li>非決定性は、子ノードによって生じる可能性がある事に注意する。
+	<p>自分自身が非決定性を生み出す事はないが、子ノードによる非決定性が影響を及ぼす場合には、</p>
+	<pre class="cs">return this.childNode.Nondeterministic;</pre>
+	<p class="resume">等とすれば良い。</p>
+</li>
+<li><del>false を返す場合、Read の戻り値に null 以外を指定する事は出来ない。</del></li>
+<li>true を返した場合 INode::GetTester が実装されている必要がある。</li>
+<li>false を返した場合 INode::Read が実装されている必要がある。</li>
+</ul>
+<h4>INode::GetTester()</h4>
+<ul>
+<li><del>この関数は INode::Nondeterministic が true になる可能性がある時のみ、実装する必要がある。</del></li>
+<li><p>INode::Nondeterministic==false の時は、</p>
+<pre class="cs">
+public ITester GetTester(){
+	return new DeterministicTester(this);
+}
+</pre>
+	<p class="resume">の様な簡単な実装で済ませる。→やはり DeterministicTester の呼び出しは Regex 側で実行するので不要である。</p>
+</li>
+</ul>
+<h4>INode::Read(Status)</h4>
+<p>INode::Nondeterministic==false の時に、実際に読み取りを実行する為の関数である。</p>
+<ul>
+<li>INode::Nondeterministic==false に為りうる場合だけ実装する必要がある。</li>
+</ul>
+<h4>INode::EnumChildren</h4>
+<p>子ノードを列挙する為のプロパティである。キャプチャノードなどを検索する際に使用される。</p>
+<ul>
+<li>子ノードが存在しない場合には RegexFactory::EmptyNodes を返す。
+	<pre class="cs">get{retrun EmptyNodes;}</pre>
+</li>
+</ul>
+
+<h4>ITester::Read(Status)</h4>
+<p>INode::Nondeterministic==true の時に、実際に読み取りを実行する為の関数である。</p>
+<ol>
+<li>Nondeterministic な子ノードを読み取る為には、
+子ノードの tester を戻り値として途中で制御を返さなければ為らない。
+<pre class="cs">
+	status=10;return childNode.GetTester();
+LABEL10:
+	... // 続きのコード
+</pre>
+</li>
+<li>Deterministic な子ノードを読み取る為には、
+子ノードの Read を直接実行する必要がある。
+<pre class="cs">
+	childNode.Read(s);
+</pre>
+</li>
+</ol>
+</body>
+</html>
