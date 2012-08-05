@@ -1,0 +1,681 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <title>afh.Forms</title>
+  <link rel="stylesheet" type="text/css" charset="utf-8" href="http://localhost/mwg3/mwg.std.css" />
+  <link rel="stylesheet" type="text/css" charset="utf-8" href="http://localhost/mwg3/prog.std.css" />
+  <meta name="mwg-kick-type" content="text.color" />
+  <script type="text/javascript" charset="utf-8" src="http://localhost/mwg3/mwg.kick.js"></script>
+</head>
+<body>
+<h1>afh.Forms 更新履歴</h1>
+<!--########################################################################-->
+<h2>TreeView 仕様</h2>
+<!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+<h3>各イベントの動作手順</h3>
+<ul>
+<li>DragMove
+  <ol>
+  <li>method:TreeNode.DDBehavior.OnDrag</li>
+  <li><del>event:TreeNode.DragMove</del></li>
+  </ol>
+</li>
+<li>DragDrop
+  <ol>
+  <li>method:TreeNode.DDBehavior.OnDrop</li>
+  <li><del>event:TreeNode.DragDrop</del></li>
+  </ol>
+</li>
+<li>Drag and Drop 一連の流れ
+  <ol>
+  <li>method:TreeNode.DDBehavior.OnEnter</li>
+  <li>method:TreeNode.DDBehavior.OnDrag *</li>
+  <li>method:TreeNode.DDBehavior.OnDrop ?</li>
+  <li>method:TreeNode.DDBehavior.OnLeave</li>
+  </ol>
+</li>
+</ul>
+<!--########################################################################-->
+<h2>使用方法</h2>
+<h3>[説明] 子ノードリストを変更している間、再配置・再描画を抑えるには?</h3>
+<p>TreeNodeCollection.SuppressLayout を使用します。</p>
+<pre class="cs">
+void example(TreeNode node){
+  using(node.Nodes.SuppressLayout()){
+    // ノード集合に対する操作
+  }
+}
+</pre>
+<p>必ず<em>戻り値に対して using を使用して</em>例外安全に解放される様にして下さい。</p>
+<!--########################################################################-->
+<h2>計画1. スクロール</h2>
+<!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+<h3>1. スクロール範囲の指定</h3>
+<p class="marked">※ 茲で使う「表示何とか」という表現は、スクロールに於いて現在表示されている領域の事を表す。</p>
+<p class="marked">※ また、「論理何とか」というのは、スクロールに於いて、
+現在隠れて表示されていない領域も含めて、全体の領域を指す言葉とする。
+</p>
+<p>スクロールに於ける、現在のページ範囲を指定する為の物が何処にもない?
+色々試した結果、AutoScrollMinSize を変更するとスクロールバーのバーの大きさが変わる。
+でも、どの様に変わっているのか良く分からない…と思っていたら、
+</p>
+<p>AutoScrollMinSize は現在の論理頁の大きさを指定する物で、
+更に頁の大きさは自動的に現在の表示領域の大きさ (px) が割り当てられる様である。
+則ち、論理的な大きさも px 単位で計算しなければならないと言う事である。
+</p>
+<!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+<h3>2. スクロールした時の座標の計算が可笑しい?</h3>
+<p><del>
+先ず、Graphics.TranslateTransform(float,float) の使い方が可笑しかった。
+引数に指定するのは、描画する物の位置の移動を指定するのではなくて、
+今迄の原点が新しい座標でどの様に表現されるかを指定するのである。
+則ち、新しい座標を x'; 古い座標を x; 引数の指定を δ とすると、
+x' = x + δ である。(座標の既定に対する変換)
+更にこの時の結果としては offset = -δ となる。
+(offset は反変量である位置の成分表示に対するものだからである)
+ややこしい設計になっている物である。もっと統一的に定義して欲しい。
+</del></p>
+<p>否、ちゃんと直感に依った TranslateTranform は指定の方法になっていた。
+引数に渡していた AutoScrollPosition の方の解釈を間違えていた。
+AutoScrollPosition は表示原点の論理座標だと思っていたのが、
+論理原点の表示座標であった。
+例えば
+</p>
+<pre>
+┌─────
+│
+│　┏━━━
+│　┃
+</pre>
+<p class="resume">となっている場合には、AutoScrollPosition は (2,2) ではなくて、
+(-2,-2) となるのである。
+</p>
+<p class="marked">註) 後で判明した事だが、何と何と…
+AutoScrollPosition は設定する時に限っては表示原点の論理座標だそうだ。
+つまり、<em>取得する時と設定する時で値が異なる (丁度符号反転)</em> のである。
+(永続化しようと思ったら大変な事になるなあ…)
+</p>
+<p>更に、SetClip で指定出来るのは現在の表示座標に対してではなくて、
+現在の論理座標に対してであった。
+例えば、
+e.Graphics.SetClip(new Gdi::RectangleF(5,5,10,10));
+e.Graphics.Clear(Gdi::Color.Red);
+と指定した時には、
+</p>
+<pre>
+Ｏ───── ※ Ｏ 論理原点
+│
+│　┏━━━ ← 表示枠
+│　┃■
+</pre>
+<p class="resume">ではなくて、</p>
+<pre>
+Ｏ─────
+│■　　　　 ←表示されない
+│　┏━━━
+│　┃
+</pre>
+<p class="resume">となってしまう。</p>
+<div class="preholder">
+<p>[実際にテストに使ったコード]</p>
+<pre class="cs">
+if(e.ClipRectangle.Height!=69){
+  e.Graphics.DrawRectangle(Gdi::Pens.Green,e.ClipRectangle);
+  e.Graphics.Clear(Gdi::Color.LightSteelBlue);
+}
+</pre>
+</div>
+<p class="marked"># 何だか AutoScroll** には訳の分からない動作をする物が多い。
+というより、名前付けが変。</p>
+<!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+<h3>3. スクロールバーの謎</h3>
+<p>AutoScroll を true にして
+VScroll も HScroll も true にしておくと、
+スクロールバーが両方表示された時に、</p>
+<ul>
+<li>スクロールバーのバーの大きさが可笑しくなる。</li>
+<li>スクロールしてもバーの位置が変化しない (中身のスクロール自体は起こる)</li>
+</ul>
+<p>VScroll と HScroll の少なくともどちらか一方を false にしておくとこの現象は起こらない。
+(false にしたからといって表示されなくなるわけではなかった。)
+</p>
+<p>また、VScroll と HScroll を両方とも false にしても期待した通りの動作をする。
+良く分からないが、AutoScroll の時は VScroll も HScroll も false にしておく物なのかも知れない。
+</p>
+<!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+<h3>4. OnMouseWheel を拾うには</h3>
+<p><em>コントロールのコンストラクタで SetStyle(ControlStyles.UserMouse,true) としなければならない。</em></p>
+<p>特に ScrollableControl にて AutoScroll=true を設定している場合には、
+ハンドラを自分で設定しなくても、勝手にスクロールしてくれる。
+然し、そのスクロール量はどうやって決まっているのか謎である。
+</p>
+<ul>
+<li>VerticalScroll.SmallChange を試したがそれでもスクロール量は変化しない。</li>
+<li>VerticalScroll.LargeChange も試したがやはりスクロール量には関係ない様である。</li>
+</ul>
+<!--########################################################################-->
+<h2>計画2. 再描画の最適化</h2>
+<!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+<h3>1. ReDraw をするか否か</h3>
+<p>Window が隠れているか否かの情報を保持。
+もし隠れているのであれば ReDraw を実行する必要はない。
+</p>
+<p>沢山の要素を追加する時には、追加するたびに ReDraw が起こるのであったら溜まらない。
+従って、その間も ReDraw 等を一切行わない様にするべきである。
+(DisplaySize の計算も抑制するべきである。)
+勿論、追加が終わった時に手動で ReDraw 及び DisplaySize の再計算を行わなければならない。
+</p>
+<p class="marked">→ これについては 2. で扱う事にする。</p>
+<!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+<h3>2. 複数ノード操作時の再配置・再描画抑止</h3>
+<!--........................................................................-->
+<p>子要素が変更に為った時に、全て再描画処理を行うのは非効率的である。
+以下の関数に、変更のあった子要素を指定出来る様にする。
+(状況に応じた処理を行う為には、変更前の大きさも伝達する必要がある。)
+</p>
+<ul>
+<li>TreeNode.RefreshDisplaySize
+  <ul>
+  <li>→変更のあった子要素の分だけ計算し直せば良い。</li>
+  <li>子要素の高さが変化した場合には、その変化分だけ自分の高さに加えればよい。</li>
+  <li>全体の幅に変更があったと考えられる場合には全体に対して計算をし直す必要がある。</li>
+  </ul>
+</li>
+<li>TreeNode.ReDraw
+  <ul>
+  <li>→変更のあった要素の高さが変わらない場合は、変更のあった物だけ再描画すれば良い。</li>
+  <li>→高さが変わった場合には、変更のあった要素以降の要素だけ再描画すれば良い。</li>
+  </ul>
+</li>
+</ul>
+<!--........................................................................-->
+<h4>[実装] TreeNodeCollection.SuppressLayout</h4>
+<p>TreeNodeCollection.Suppress: ノードリストの幾何再計算・再描画を抑止。Resume 時に変更が在れば Refresh</p>
+<ul>
+<li>入れ子にして使う事も考えられるから、カウント式の方が良い。</li>
+<li>一度に色々な操作をしたい時の為に、SuppressRefresh 等のプロパティを実装すべき。</li>
+<li>disposable の方が使いやすい? (using で例外安全に。)</li>
+</ul>
+<pre class="cs diff">
+@ afh.Forms.TreeNodeCollection.Add @@ 2011/05/21 15:10:45
+     public void Add(TreeNode node){
+       // 既に追加されている : 末端に移動したい時?
+       //if(node.parent==this.parent)return;
+
+       // 既に別の所に居る時
+       if(node.parent!=null)
+         node.parent.Nodes.Remove(node);
+
+       node.View=this.parent.View;
+       node.parent=this.parent;
+       this.children.Add(node);
+
++      this.suppress_register(node);
+-      _todo.TreeNodeDisplayHeight("追加");
+-      if(!node.RefreshDisplaySizeAll())
+-        this.parent.RefreshDisplaySize();
+     }
+@ afh.Forms.TreeNodeCollection.Remove @@ 2011/05/21 15:11:49
+     public bool Remove(TreeNode node){
+       node.View=null;
+       node.parent=null;
+       bool ret=this.children.Remove(node);
+
++      this.suppress_register(this.parent);
+-      _todo.TreeNodeDisplayHeight("削除");
+-      this.parent.RefreshDisplaySize();
+       return ret;
+     }
+@ afh.Forms.TreeNodeCollection.RemoveAt @@ 2011/05/21 15:12:32
+     public TreeNode RemoveAt(int index){
+       TreeNode ret=this.children[index];
+       this.children.RemoveAt(index);
+       
+       ret.View=null;
+       ret.parent=null;
+
+-      _todo.TreeNodeDisplayHeight("削除");
+-      this.parent.RefreshDisplaySize();
++      this.suppress_register(this.parent);
+       return ret;
+     }
+@ afh.Forms.TreeNodeCollection.Insert @@ 2011/05/21 15:13:12
+     public void Insert(int index,TreeNode item){
+       if(index&lt;0||index&gt;this.children.Count)
+         throw new System.ArgumentOutOfRangeException("index");
+
+       // 元の場所から削除
+       if(item.parent!=null){
+         if(item.parent==this.parent){
+           // 自身に既に含まれていた場合→移動
+           int oldIndex=this.children.IndexOf(item);
+           if(index==oldIndex)return; // 変化無し
+           if(oldIndex&lt;index)index--;
+         }
+
+         item.parent.Nodes.Remove(item);
+       }
+
+       item.View=this.parent.View;
+       item.parent=this.parent;
+       this.children.Insert(index,item);
+
++      this.suppress_register(item);
+-      _todo.TreeNodeDisplayHeight("挿入");
+-      if(!item.RefreshDisplaySizeAll())
+-        this.parent.RefreshDisplaySize();
+     }
+@ afh.Forms.TreeNodeCollection.this[] @@ 2011/05/21 15:14:01
+     public TreeNode this[int index]{
+       get{return this.children[index];}
+       set{
+         if(index&lt;0||index&gt;=this.children.Count)
+           throw new System.ArgumentOutOfRangeException("index");
+
+         if(value==null){
+           this.RemoveAt(index);
+           return;
+         }
+
+         // 元の場所から削除
+         if(value.parent!=null){
+           if(value.parent==this.parent){
+             // 自身に既に含まれていた場合→移動
+             int oldIndex=this.children.IndexOf(value);
+             if(index==oldIndex)return; // 変化無し
+             if(oldIndex&lt;index)index--;
+           }
+
+           value.parent.Nodes.Remove(value);
+         }
+
+         // 繋ぎ替え
+         this.children[index].View=null;
+         this.children[index].parent=null;
+         value.View=this.parent.View;
+         value.parent=this.parent;
+         this.children[index]=value;
+
+         // 更新
++        value.ReDraw(true);_todo.TreeNodeDisplayHeight("必要か?");
++        this.suppress_register(value,true);
+-        value.RefreshDisplaySizeAll();
+-        this.parent.RefreshDisplaySize();
+       }
+     }
+</pre>
+<!--........................................................................-->
+<h4>[問題] RefreshDisplaySize [完 2011/05/21]</h4>
+<p>折角再計算関数の呼出を抑える様な仕組みを作った (TreeNodeCollection.SuppressLayout) のに、
+実際に試してみると結局再描画を何度も実行して遅くなっている。
+</p>
+<p>現状の RefreshDisplaySize の仕組みが何だか良く分からなくなってきたので、
+再度考え直す事にする。現状の動作は以下の様になっている。
+</p>
+<ul>
+<li>RefreshDisplaySize を実行
+  <ol>
+  <li>先ず、自分のサイズを再計算する。</li>
+  <li>もし、自分のサイズに変化があった場合には、
+  それが周りの要素の配置及び親要素のサイズの変化に繋がるので、
+  parent.RefreshDisplaySize を呼び出す。
+    <ol>
+    <li>親要素にサイズの変化がなかった場合には、
+    自身が再描画されていないので、
+    自分自身で再描画を実行する。</li>
+    </ol>
+  </li>
+  <li>自分のサイズに変化がなかった場合には、何もしない。</li>
+  <li>自分のサイズに変化があった場合に true を返す。
+    <ul>
+    <li>true が返った時は、暗に、再描画が実行された事を表す。</li>
+    <li>false が返った時には、再描画が実行されていない事を示唆する。</li>
+    </ul>
+  </li>
+  </ol>
+</li>
+<li>※ RefreshDisplaySizeAll は、自分のサイズを計算し直す際に、
+子孫まで全て計算し直すかどうか以外は変わらない。</li>
+</ul>
+
+<p>そして現在この動作の所為で、良く分からない事になっているのが、
+子ノードリストを色々に編集した時の動作である。
+</p>
+<ul>
+<li>問題は、子ノードを一つ追加する度に、必ず親要素の再描画が実行されてしまうという事である。
+  <p>その為に、先ずは、子ノードの再計算を、子ノードリスト編集後にまとめて実行する様にしてみたのだが…。
+  一つ一つの子ノードの再計算の度に勝手に子ノードが親ノードの再描画を呼び出してしまうので、
+  結局親ノードの再描画が子ノードの個数だけ実行されてしまう様である。
+  </p>
+  <p>要するに、子要素が勝手に親要素の再描画を実行してしまうのが問題なのではないかという事である。
+  然し、一方で子要素のサイズ変更があった場合に、親要素のサイズを再計算をしなければならないというのも事実である。
+  と言う事は、サイズの再計算と再描画は切り離すべきなのだろうか?
+  </p>
+  <p>否、今問題になっているのは子ノードリストをまとめて操作する際の話であって、
+  その様な場合には親要素のサイズ再計算も抑制しておくべきである。
+  つまり、必要なのは、親要素のサイズ再計算を抑制しておく仕組みである。</p>
+</li>
+</ul>
+
+<p>新しい枠組みを作った方が良いかも知れない。
+解決方法の案を挙げる事にする。
+</p>
+<ol style="list-style-type:lower-alpha;">
+<li>再描画しなければならない要素の管理は view 側で行う事にする。
+  <p>view でロックを実行しておき、ロックが解除された時に自動的に再描画を実行する。
+  その際には、ノードに dirty フラグなどを保持させておき、
+  それを解除する事によって重複して描画してしまう事を避ける様にするべきである。
+  </p>
+  <p>また、子要素よりも親要素の方を先に再描画する様に促す仕組みもあった方が良い。
+  そうでないと、子要素を再描画した後に、親要素の再描画が実行されて
+  子要素を二回描画しなければならなくなる可能性があるからである。
+  </p>
+</li>
+<li>親ノードのサイズ再計算を抑制する仕組み
+  <p>親ノードのサイズ再計算を抑制する仕組みと、
+  <del>親ノードのサイズ変更がなかった場合に</del>
+  親ノード内で子ノードの内の一つでも大きさが変わった場合に、
+  子ノードの再描画を全て実行する仕組みが必要である。
+  </p>
+</li>
+<li>根本から考え直す。その上で再利用出来そうな部分は再利用する
+  <p>抑も何をしなければならなかったかを整理する。</p>
+  <ul>
+  <li>ノードサイズが変化した時、親ノードの再描画 (自ノードの再描画を含む) を実行しなければならない</li>
+  <li>ノード内容に変化があったが、ノードサイズに変化がなかった場合自分自身だけ再描画すればよい
+    <p>これは、呼出元で実行される物である。
+    というのも、本当にノード内容に変化があったかどうかを知っているのは呼出元だからである。
+    この設計に関しては問題はないと考える。</p>
+  </li>
+  <li>複数の兄弟ノードに変化がある場合 (1)
+    <p>構成ノードに変化がある場合には、以下の順で処理を実行する。</p>
+    <ol>
+    <li>新しく入った構成ノードのサイズ再計算 (此処では未だ再描画は行わない)</li>
+    <li>親ノードのサイズ再計算を実行</li>
+    <li>親ノードの再描画を実行</li>
+    </ol>
+  </li>
+  <li>複数の兄弟ノードに変化がある場合 (2)
+    <p>構成ノードの変化はないが、複数のノードのサイズが変化する場合</p>
+    <ol>
+    <li>サイズの変化した可能性のあるノードの再計算 (此処では未だ再描画は行わない)</li>
+    <li>親ノードのサイズ再計算を実行</li>
+    <li>親ノードの再描画を実行する</li>
+    </ol>
+    <p>構成ノードの変化はなく、再計算の結果としてノードサイズ変化もなかった場合</p>
+    <ol>
+    <li>サイズの変化した可能性のあるノードの再計算 (此処では再描画は行わない)</li>
+    <li>サイズ変化がなかった事を確認したら、
+      <del>一つ一つのサイズ変化した可能性のあったノードを再描画する?</del>
+      (← これを実行する必要があるとは限らない。
+      呼出元が再描画の必要性を把握しているので、呼出元で再描画を実行するべきである。)
+      何もしなくてよい。
+    </li>
+    </ol>
+  </li>
+  </ul>
+  <p>つまり、複数ノードに変化がある場合には、
+  一ノード再計算用の RefreshDisplaySize を実行するのではなく、
+  複数ノード再計算専用のメソッドを実行するべきであるという事だ。
+  </p>
+</li>
+</ol>
+<p>結局上記の c. の様に、複数ノード再計算用の関数を作成するだけで解決する事であった。</p>
+<pre class="cs diff">
+@ afh.Forms.TreeNodeCollection.suppress_decrement @@ 2011/05/21 20:42:05
+     private void suppress_decrement(){
+       if(System.Threading.Interlocked.Decrement(ref this.suppress_count)&gt;0)return;
+       lock(this.suppress_sync){
+         if(this.suppress_nodes==null)return;
+
++        this.parent.RefreshDisplaySizeNewChildren(suppress_nodes);
++        this.suppress_nodes.Clear();
+-        bool fRecalcParent=false;
+-        foreach(TreeNode node in this.suppress_nodes){
+-          if(node==parent)
+-            fRecalcParent=true;
+-          else if(!node.RefreshDisplaySizeAll())
+-            fRecalcParent=true;
+-        }
+-        this.suppress_nodes.Clear();
+-        if(fRecalcParent)
+-          this.parent.RefreshDisplaySize();
+       }
+     }
+</pre>
+<!--#######################################################################-->
+<h2>計画3. Drag &amp; Drop</h2>
+<!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+<h3>1. 複数選択機能の実装 [完]</h3>
+<p>Drag &amp; Drop を実装するよりも前に、複数選択を実装して動作を固めておいた方が良い様に思う。</p>
+<ul>
+<li>MultiSelect
+  <p>複数選択を有効にするか否かを取得又は設定するプロパティ</p>
+</li>
+<li>複数選択の仕方
+  <table class="normal">
+  <tr><th>修飾キー</th><th>動作</th></tr>
+  <tr><td>[Ctrl]</td><td>指定した TreeNode の選択状態を反転</td></tr>
+  <tr><td>[Shift]</td><td>[FocusedNode, 指定した TreeNode] を選択</td></tr>
+  <tr><td>[Ctrl+Shift]</td><td>(FocusedNode, 指定した TreeNode] の選択状態を反転</td></tr>
+  </table>
+</li>
+</ul>
+<!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+<h3>2. [問題] Drag を開始した瞬間にドラッグ対象の TreeNode の反転表示が消えてしまう。 [完]</h3>
+<p>→之は、ActivatedNode = null が実行されているという事を示す。
+ActivatedNode=null を実行しているのは、OnMouseUp と set_LastMouseNode である。
+調べてみた所、Drag を開始した瞬間に実行されるのは、
+set_LastMouseNode の方であった。
+更に、之の呼出元は OnMouseLeave であった。
+</p>
+<p>動作を纏めると以下の様になる。</p>
+<ol>
+<li>OnDragDrop()</li>
+<li>マウスを 1px でも動かすと OnMouseLeave</li>
+<li>LastMouseNode = null</li>
+<li>ActivatedNode = null</li>
+<li>反転表示が無くなって、元のノードが反転される。</li>
+</ol>
+<p>これを解決するには、現在 DD の対象になっている TreeNode 達を保持していなければならない</p>
+<ol style="list-style-type:lower-alpha;">
+<li>掴んだ TreeNode が元から選択されている TreeNode だった場合には、
+  SelectedNode が現在 DD の対象となっている。
+  この場合には、反転表示が戻っても、元から選択されて反転になっているので問題ない。
+</li>
+<li>掴んだ TreeNode が元から選択されている TreeNode でなかった場合には、
+  その TreeNode 一つが DD の対象となる。</li>
+</ol>
+<!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+<h3>3. DragOver に対する処理</h3>
+<p>各 TreeNode に対する DragEnter, DragLeave, DragOver のイベントを実装</p>
+<p>DragEnter DragLeave DragOver は、DDBehavior で実装する事にした。</p>
+<h4>具体実装: TreeNodeDDBehaviorBase</h4>
+<p>以上迄に、枠組みは完成した。
+後は、具体的に個々の木構造に応じて色々な操作を定義する。
+</p>
+<ul>
+<li>KeyState を取得して操作を切替</li>
+<li>ドラッグされている物に応じて操作を切替</li>
+<li>反転領域の制御
+  <ul>
+  <li>ノードにドロップするのか [要素全体を反転]</li>
+  <li>ノードの前にドロップするのか [上端に線]</li>
+  <li>ノードの次にドロップするのか [下端に線]</li>
+  <li>子要素の始めにドロップするのか [下端に右にずらして線]</li>
+  </ul>
+</li>
+</ul>
+<p>これらをどの様に実装するかは、
+本当に個々の状況に依存するので、一般的な仕組みは作り難い。
+然し、操作切替と反転対象を指定したら、
+後は自動でやってくれる仕組みがあると楽かも知れない。
+</p>
+<p class="marked">→ TreeNodeDDBehaviorBase として実装した。</p>
+<!--#######################################################################-->
+<h2>他</h2>
+<!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+<h3>個々のノードの表示に関して</h3>
+<p>TranslateTransform を使用すると、ClipBounds もそれに応じて変化を受ける。
+Transform に行列を直接代入した場合にも ClipBounds がちゃんと変化を受ける事を確認した。
+</p>
+<p>表示する物を横から並べると…</p>
+<ul>
+<li>+-...
+  <p>之に関しては親が管理するべきである。</p>
+</li>
+<li>OK>CheckedBox</li>
+<li>OK>Icon</li>
+<li>OK>Content (Text 等)</li>
+</ul>
+<h4>位置座標→ノードの場所</h4>
+<p>取り敢えず実装した。
+ちゃんと動作しているかどうかに関しては厳密には確かめていない。
+が、今のところ大体動いている様である。
+</p>
+<p>また、ノードの具体的にどの部分に対応しているかの判定については、
+実装途中である。
+</p>
+<p>→実装は±以外は一通り完了した。
+ちゃんとした動作をしているかどうかは今の所は未だ分からない。
+(その内に、IconChanged や ContentChanged 及び CheckedBoxChanged 等を
+実装して、そのイベントが起こるか否かで詳細に見ていけば良い)
+</p>
+<h4>IsFocused</h4>
+<p>選択されている状態と、フォーカスがある状態は別である。
+選択されている状態は複数在っても、
+フォーカスを持つ状態は一つしかない。
+(点線で文字が囲まれている物。)
+</p>
+<!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+<h3>± の表示の管理</h3>
+<p>± の表示についての管理は親の方で行う事にする。</p>
+<ul>
+<li>ChildIndent についても ± に統合して管理してしまう事とする。
+  <p>現在 ChildIndent が使用されている場所は…</p>
+  <ol style="list-style-type:lower-alpha;">
+  <li>DrawChildren の前の TranslateTransform</li>
+  <li>children の LocalPosition2Node 呼び出しの前</li>
+  <li>LocalPos2ParentLocalPos</li>
+  <li>HitLocalPosition</li>
+  </ol>
+  <p class="marked">→これらは、Node の Local 座標の原点を、
+  ±と本体の丁度間に配置するという儘にしておけば変更する必要はない。
+  </p>
+<pre>
+   . ←此処が局所座標原点になっている。
+田- 項目名
+</pre>
+</li>
+<li>領域について
+  <p>Hit の判定などで判別される領域として複数考える事が出来る。</p>
+  <ol style="list-style-type:lower-alpha;">
+  <li>Indent 領域 [水平位置] // 区別する必要はあるのか…?</li>
+  <li>枝の領域 [水平位置]</li>
+  <li>±の領域 [特に±のマークの部分]</li>
+  </ol>
+  <p>一応 (a.∪b.) 及び c. の判定の実装を行った。</p>
+</li>
+</ul>
+<!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+<!--#######################################################################-->
+<h2>実装計画中</h2>
+<h3>計画. キーボード操作</h3>
+<h4>[問題] キーボード操作でフォーカスが逃げる [完 2011/05/22]</h4>
+<p>キーボードで操作しようとすると、
+何故か他のコントロールにフォーカスが移ってしまってうまく操作する事が出来ない。
+何が行けないのかと思っていたら、OnPreviewKeyDown で処理をしようとしていた事が行けなかった様である。
+実際には、ProcessCmdKey で処理を実行し、処理が終わったという事を示す為に true を返さなければ行けないのである。
+</p>
+<pre class="cs diff">
+@ afh.Forms.TreeView.OnPreviewKeyDown @@ 2011/05/22 01:15:30
+-    protected override void OnPreviewKeyDown(Forms::PreviewKeyDownEventArgs e){
+-      _todo.TreeViewMultiSelect("Shift が押されていた時などの動作 (複数選択)");
+-      TreeNode node;
+-      switch(e.KeyCode){
++    protected override bool ProcessCmdKey(ref Forms::Message msg,Forms::Keys keyData){
++      TreeNode node;
++      switch(keyData&amp;~Forms::Keys.Modifiers){
+         case System.Windows.Forms.Keys.Down:
+           if(this.FocusedNode==null)break;
+
+           node=this.FocusedNode.NextVisibleInTree;
+           goto move_to;
+         case System.Windows.Forms.Keys.Up:
+           if(this.FocusedNode==null)break;
+
+           node=this.FocusedNode.PreviousVisibleInTree;
+           goto move_to;
+         case System.Windows.Forms.Keys.Left:
+           node=FocusedNode;
+           if(node==null)break;
+
+           if(node.HasChildren&amp;&amp;node.IsExpanded){
+             node.IsExpanded=false;
+             break;
+           }
+
+           node=node.ParentNode;
+           goto move_to;
+         case System.Windows.Forms.Keys.Right:
+           node=FocusedNode;
+           if(node==null||!node.HasChildren)break;
+
+           if(!node.IsExpanded){
+             node.IsExpanded=true;
+             break;
+           }
+
+           node=node.Nodes.FirstNode;
+           goto move_to;
+         case System.Windows.Forms.Keys.Home:
+           node=this.Nodes.FirstNode;
+           goto move_to;
+         case System.Windows.Forms.Keys.End:
+           node=this.Nodes.LastNode;
+           while(true){
+             if(node==null){
+               afh.DebugUtils.Assert(this.Nodes.Count==0);
+               break;
+             }else if(!node.IsVisible){
+               node=node.PreviousSibling;
+             }else if(node.IsExpanded&amp;&amp;node.HasChildren){
+               node=node.Nodes.LastNode;
+             }else{
+               break;
+             }
+           }
+
+           goto move_to;
+         move_to:
+           if(node==null||node==root)break;
+-          this.SelectNode(node,e.Modifiers);
+-          this.FocusedNode=node;
+-          break;
++          this.SelectNode(node,keyData&amp;Forms::Keys.Modifiers);
++          this.FocusedNode=node;
++          return true;
+         default:
+-          break;
++          return base.ProcessCmdKey(ref msg,keyData);
+       }
+-      base.OnPreviewKeyDown(e);
++      return true;
+     }
+</pre>
+<h4>[問題] Shift 等を押しながら選択すると選択ノードの表示と実際の選択ノードの集合がずれる [完 2011/05/22]</h4>
+<p>選択ノード集合からは削除されているのに、
+ノード自身の選択状態が解除されていない様だと思ったら、下らないミスだった。</p>
+<pre class="cs diff">
+@ afh.Forms.SelectedNodeCollection.Set @@ 2011/05/22 01:41:26
+     public void Set(Gen::IEnumerable&lt;TreeNode&gt; nodeCollection){
+-      Gen::List&lt;TreeNode&gt; oldNodes=new Gen::List&lt;TreeNode&gt;();
++      Gen::List&lt;TreeNode&gt; oldNodes=this.nodes;
+       bool changed=false;
+</pre>
+
+</body>
+</html>

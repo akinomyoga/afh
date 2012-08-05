@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<svg version="1.1"
+  baseProfile="full"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:ev="http://www.w3.org/2001/xml-events"
+  xml:space="default" width="300" height="300">
+  <image x="10" y="20" width="300px" height="300px" xlink:href="TreeNode.PNG" />
+  <text x="70" y="50" font-size="20pt">
+    @IT
+  </text>
+  <ellipse cx="90" cy="110" rx="60" ry="40" fill="lightgray" 
+    stroke="blue" stroke-width="5"/>
+</svg>
