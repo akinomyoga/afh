@@ -1,0 +1,10 @@
+
+
+
+*.exe
+*.lzh
+Thumbs.db
+*.csproj.user
+bin
+obj
+*.suo
